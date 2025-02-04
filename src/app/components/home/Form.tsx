@@ -19,7 +19,7 @@ import {
   PlaneLanding,
   PlaneTakeoff,
 } from "lucide-react";
-import { act, useState } from "react";
+import { useState } from "react";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
@@ -72,9 +72,18 @@ export default function Form() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(from, to, additional);
+    console.log(
+      from,
+      to,
+      additional,
+      titleOther,
+      firstName,
+      lastName,
+      email,
+      marketingConsent
+    );
   };
 
   return (
