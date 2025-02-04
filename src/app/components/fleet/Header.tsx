@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 
 export default function Header() {
-  const parallaxRef = useRef(null);
+  const parallaxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
