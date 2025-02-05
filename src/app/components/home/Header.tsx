@@ -21,9 +21,6 @@ export default function Header() {
           <button className="w-36 rounded-full border py-2 text-xs font-medium opacity-90">
             PLANIFIER UN VOL
           </button>
-          <button className="w-36 rounded-full border py-2 text-xs font-medium opacity-90">
-            ABONNEMENTS
-          </button>
         </div>
       </div>
     </div>

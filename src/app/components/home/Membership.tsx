@@ -2,14 +2,14 @@ import Image from "next/image";
 
 export default function Membership() {
   return (
-    <div className="bg-white">
+    <div className="bg-white mb-20">
       <div className="max-w-[1250px] mx-auto mt-5 px-5 flex flex-col gap-20">
         <div className="flex flex-col gap-5">
-          <span className="text-xl text-zinc-500 tracking-widest">
+          {/* <span className="text-xl text-zinc-500 tracking-widest">
             NOS ABONNEMENTS
-          </span>
+          </span> */}
           <p className="text-sm text-zinc-500 tracking-wider">
-            VistaJet propose des abonnements flexibles et sans investissement de
+            Oppong Private Jet propose des abonnements flexibles et sans investissement de
             capital pour répondre à vos besoins de vol privé. Nos membres
             bénéficient d&apos;un accès mondial et d&apos;un service inégalé à
             bord d&apos;une flotte cohérente et moderne composée de jets privés
@@ -55,9 +55,9 @@ export default function Membership() {
                     internationale de jets privés de premier plan.
                   </p>
                 </div>
-                <button className="text-xs px-7 py-2 rounded-full bg-red-700 hover:bg-red-800 transition-colors duration-300 ease-in-out tracking-wider text-white">
+                {/* <button className="text-xs px-7 py-2 rounded-full bg-red-700 hover:bg-red-800 transition-colors duration-300 ease-in-out tracking-wider text-white">
                   VOIR NOS ABONNEMENTS
-                </button>
+                </button> */}
               </div>
             </div>
           </div>

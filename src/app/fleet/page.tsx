@@ -2,7 +2,7 @@ import ContinentalRange from "../components/fleet/ContinentalRange";
 import GlobalReach from "../components/fleet/GlobalReach";
 import Header from "../components/fleet/Header";
 import Form from "../components/home/Form";
-import MembershipForm from "../components/MembershipForm";
+// import MembershipForm from "../components/MembershipForm";
 
 export default function Fleet() {
   return (
@@ -26,7 +26,7 @@ export default function Fleet() {
           <Form />
         </div>
       </div>
-      <div className="bg-white mt-8">
+      {/* <div className="bg-white mt-8">
         <div className="max-w-[1250px] mx-auto px-5 flex flex-col gap-5 pt-10">
           <span className="tracking-[.3rem] text-xl font-light">
             DEMANDE D&apos;ADHÉSION
@@ -44,7 +44,7 @@ export default function Fleet() {
           </p>
           <MembershipForm />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

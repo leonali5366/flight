@@ -19,12 +19,12 @@ export default function Header() {
     <div>
       <div
         ref={parallaxRef}
-        className="relative h-screen flex items-center bg-fixed justify-center text-white bg-cover bg-center"
+        className="relative h-screen flex items-center bg-fixed justify-center text-white bg-cover bg-center px-5"
         style={{ backgroundImage: `url('/images/fleet-header.jpeg')` }}
       >
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-[-1]"></div>
         <div className="flex flex-col items-center gap-10 text-center">
-          <h1 className="text-6xl font-garamond-display">
+          <h1 className="lg:text-6xl text-3xl font-garamond-display">
             Une flotte mondiale emblématique dans toutes les <br /> catégories
             d&apos;avions
           </h1>
@@ -33,7 +33,7 @@ export default function Header() {
             NOUS OFFRONS LA LIBERTÉ ET LE CHOIX <br /> ULTIMES DE VOLER
             N&apos;IMPORTE OÙ.
           </p>
-          <div className="flex items-center justify-between gap-16 w-[650px]">
+          <div className="flex lg:flex-row flex-col lg:items-center lg:justify-between lg:gap-16 gap-5 w-full max-w-[650px]">
             <button className="w-full rounded-full border tracking-wider font-light py-2 text-xs opacity-90">
               FLOTTE MONDIALE
             </button>

@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/dialog";
 import Header from "../components/experience/Header";
 import Image from "next/image";
-import MembershipForm from "../components/MembershipForm";
+// import MembershipForm from "../components/MembershipForm";
 
 const service = [
   {
@@ -139,7 +139,7 @@ export default function Experience() {
               );
             })}
           </div>
-          <div className="flex lg:flex-row flex-col lg:justify-between">
+          <div className="flex lg:flex-row flex-col lg:justify-between mb-20">
             <div className="w-full lg:h-[500px] h-[300px] relative">
               <Image
                 src={"/images/peninsula-villa---aerial-2.jpeg"}
@@ -176,7 +176,7 @@ export default function Experience() {
               </div>
             </div>
           </div>
-          <div className="bg-white mt-8">
+          {/* <div className="bg-white mt-8">
             <div className="max-w-[1250px] mx-auto px-5 flex flex-col gap-5 pt-10">
               <span className="tracking-[.3rem] text-xl font-light">
                 DEMANDE D&apos;ADHÉSION
@@ -194,7 +194,7 @@ export default function Experience() {
               </p>
               <MembershipForm />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { AnimatePresence } from "framer-motion";
+import Sidebar from "./sidebar/Sidebar";
 
 export default function Nav() {
   const [isScrolled, setIsScrolled] = useState(false); // Track if the user has scrolled
@@ -34,6 +36,7 @@ export default function Nav() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY, isNavVisible]);
+  const [isActive, setIsActive] = useState(false);
 
   return (
     <nav
@@ -46,11 +49,31 @@ export default function Nav() {
       }`}
     >
       <div className="max-w-[1400px] mx-auto flex items-center justify-between px-5 h-full">
-        <ul className="flex items-center gap-5 text-xs font-medium cursor-pointer max-lg:hidden">
-          <li className="uppercase">
+        <ul className="flex items-center gap-5 text-xs font-medium cursor-pointer">
+          <li>
+            <div
+              onClick={() => {
+                setIsActive(!isActive);
+              }}
+              className="size-[40px] rounded-full bg-red-800 cursor-pointer flex items-center justify-center z-10"
+            >
+              <div
+                className={`w-full before:content-[''] before:block before:h-px before:w-2/5 before:top-[5px] after:top-[-5px] before:mx-auto before:bg-white before:relative before:transition-transform before:duration-300 after:content-[''] after:block after:h-px after:w-2/5 after:mx-auto after:bg-white after:relative after:transition-transform after:duration-300 ${
+                  isActive
+                    ? "before:transform before:-rotate-45 after:transform after:rotate-45 after:mt-2"
+                    : ""
+                }`}
+              ></div>
+            </div>
+          </li>
+
+          <AnimatePresence mode="wait">
+            {isActive && <Sidebar />}
+          </AnimatePresence>
+          <li className="uppercase max-lg:hidden">
             <Link href={"/fleet"}>La flotte</Link>
           </li>
-          <li className="uppercase">
+          <li className="uppercase max-lg:hidden">
             <Link href={"/experience"}>Expérience</Link>
           </li>
         </ul>
@@ -83,11 +106,9 @@ export default function Nav() {
           </span>
           <Link href={"/request-a-quote"}>
             <button
-              className={`py-2 px-5 ${
-                isScrolled
-                  ? "bg-red-700 hover:bg-red-800 text-white" // Red button when scrolled
-                  : "bg-white hover:bg-gray-100 text-black" // White button at the top
-              } transition-colors duration-300 ease-in-out rounded-full text-xs tracking-widest uppercase`}
+              className={`py-2 px-5
+              bg-red-700 hover:bg-red-800 text-white
+              transition-colors duration-300 ease-in-out rounded-full text-xs tracking-widest uppercase`}
             >
               Demande de devis
             </button>

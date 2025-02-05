@@ -1,15 +1,15 @@
 import Form from "../components/home/Form";
-import MembershipForm from "../components/MembershipForm";
+// import MembershipForm from "../components/MembershipForm";
 
 export default function RequestAQuote() {
   return (
     <div className="bg-white">
-      <div className="max-w-[1250px] mx-auto px-5">
+      <div className="max-w-[1250px] mx-auto px-5 lg:h-screen">
         <div className="mt-32 flex flex-col gap-7">
-          <span className="text-6xl text-zinc-600 font-garamond-display">
+          <span className="lg:text-6xl text-3xl text-zinc-600 font-garamond-display">
             Demandez un devis pour votre prochain vol.
           </span>
-          <p className="text-zinc-600 font-light tracking-wider leading-6">
+          <p className="text-zinc-600 font-light tracking-wider leading-6 max-lg:text-sm">
             Chaque vol est unique, nous travaillons donc avec diligence pour
             créer le vol parfait qui répond à la fois à vos exigences de voyage
             et à vos préférences personnelles à chaque fois que vous voyagez.
@@ -35,7 +35,7 @@ export default function RequestAQuote() {
           </p>
         </div>
       </div>
-      <div className="bg-[#F6F6F6]">
+      {/* <div className="bg-[#F6F6F6]">
         <div className="max-w-[1250px] mx-auto px-5">
           <div className="mt-8">
             <div className="max-w-[1250px] mx-auto px-5 flex flex-col gap-5 pt-10">
@@ -57,7 +57,7 @@ export default function RequestAQuote() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

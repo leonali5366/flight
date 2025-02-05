@@ -36,7 +36,7 @@ export default function GlobalReach() {
   return (
     <div className="bg-white py-20">
       <div className="max-w-[1250px] mx-auto max-lg:px-20">
-        <h1 className="text-6xl text-red-700 font-garamond-display text-center">
+        <h1 className="lg:text-6xl text-4xl text-red-700 font-garamond-display text-center">
           PORTÉE MONDIALE
         </h1>
         <Carousel className="mt-5">

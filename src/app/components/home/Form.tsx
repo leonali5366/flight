@@ -22,22 +22,29 @@ import {
 import { useState } from "react";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import airports from "airports"; // Import the airports library
 
-const generateTimeArray = () => {
-  const times = [];
-  for (let hour = 0; hour < 24; hour++) {
-    for (let minute = 0; minute < 60; minute += 30) {
-      // Format hours and minutes to always be two digits
-      const formattedHour = String(hour).padStart(2, "0");
-      const formattedMinute = String(minute).padStart(2, "0");
-      times.push(`${formattedHour}:${formattedMinute}`);
-    }
-  }
-  return times;
-};
+// const generateTimeArray = () => {
+//   const times = [];
+//   for (let hour = 0; hour < 24; hour++) {
+//     for (let minute = 0; minute < 60; minute += 30) {
+//       const formattedHour = String(hour).padStart(2, "0");
+//       const formattedMinute = String(minute).padStart(2, "0");
+//       times.push(`${formattedHour}:${formattedMinute}`);
+//     }
+//   }
+//   return times;
+// };
+
+interface Airport {
+  iata: string; // Airport code (e.g., "JFK")
+  name: string; // Airport name (e.g., "John F. Kennedy International Airport")
+  city: string; // City name (e.g., "New York")
+  country: string; // Country name (e.g., "United States")
+}
 
 export default function Form() {
-  const timeArray = generateTimeArray();
+  // const timeArray = generateTimeArray();
   const [active, setActive] = useState<boolean>(false);
   const [from, setFrom] = useState<string>("");
   const [to, setTo] = useState<string>("");
@@ -58,6 +65,10 @@ export default function Form() {
   const [hearAboutUs, setHearAboutUs] = useState<string>();
   const [marketingConsent, setMarketingConsent] = useState<boolean>();
 
+  // State for airport search results
+  const [fromResults, setFromResults] = useState<Airport[]>([]);
+  const [toResults, setToResults] = useState<Airport[]>([]);
+
   // Increment function: prevent going above 14
   const increment = () => {
     if (passenger < 14) {
@@ -69,6 +80,63 @@ export default function Form() {
   const decrement = () => {
     if (passenger > 1) {
       setPassenger(passenger - 1);
+    }
+  };
+
+  // Handle "From" input change
+  const handleFromChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setFrom(value);
+
+    // Filter airports based on input
+    const results = airports.filter((airport: Airport) => {
+      const name = airport.name?.toLowerCase() ?? "";
+      const city = airport.city?.toLowerCase() ?? "";
+      const iata = airport.iata?.toLowerCase() ?? "";
+
+      return (
+        name.includes(value.toLowerCase()) ||
+        city.includes(value.toLowerCase()) ||
+        iata.includes(value.toLowerCase())
+      );
+    });
+
+    setFromResults(results.slice(0, 5)); // Show top 5 results
+  };
+
+  // Handle "To" input change
+  const handleToChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setTo(value);
+
+    // Filter airports based on input
+    const results = airports.filter((airport: Airport) => {
+      const name = airport.name?.toLowerCase() ?? "";
+      const city = airport.city?.toLowerCase() ?? "";
+      const iata = airport.iata?.toLowerCase() ?? "";
+
+      return (
+        name.includes(value.toLowerCase()) ||
+        city.includes(value.toLowerCase()) ||
+        iata.includes(value.toLowerCase())
+      );
+    });
+
+    setToResults(results.slice(0, 5)); // Show top 5 results
+  };
+
+  // Handle airport selection
+  const handleSelectFrom = (airport: Airport) => {
+    if (airport.name && airport.iata) {
+      setFrom(`${airport.name} (${airport.iata})`);
+      setFromResults([]); // Clear results
+    }
+  };
+
+  const handleSelectTo = (airport: Airport) => {
+    if (airport.name && airport.iata) {
+      setTo(`${airport.name} (${airport.iata})`);
+      setToResults([]); // Clear results
     }
   };
 
@@ -88,190 +156,237 @@ export default function Form() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className=" text-black text-sm">
-        <div className="w-full border border-black rounded-full h-16 grid grid-cols-4 items-center px-7 font-medium py-3">
-          <div className="w-full flex items-center gap-3">
-            <PlaneTakeoff size={20} strokeWidth={1.25} />
-            <Input
-              onChange={(e) => setFrom(e.target.value)}
-              placeholder="From"
-              className="border-none shadow-none focus-visible:ring-0 placeholder:font-light font-light"
-            />
-          </div>
-          <div className="border-l border-black w-full flex items-center gap-3 pl-4 h-full">
-            <PlaneLanding size={20} strokeWidth={1.25} />
-            <Input
-              onChange={(e) => setTo(e.target.value)}
-              placeholder="To"
-              className="border-none shadow-none focus-visible:ring-0 placeholder:font-light font-light"
-            />
-          </div>
-          <div className="border-l border-black w-full flex items-center justify-between pl-4 h-full">
-            <div className="w-full flex items-center gap-3">
-              <Popover>
-                <PopoverTrigger className="flex items-center gap-5">
-                  <CalendarIcon size={20} strokeWidth={1.25} />
-                  <div className="flex flex-col">
-                    <span className="text-sm font-light">
-                      {date ? date.toLocaleDateString() : "Date"}
-                    </span>
-                    <span className="text-xs font-light">
-                      {date && departingTime}
-                    </span>
-                  </div>
-                </PopoverTrigger>
-                <PopoverContent className="z-10 my-5 rounded-md border shadow bg-white">
-                  <Calendar
-                    mode="single"
-                    selected={date}
-                    onSelect={setDate}
-                    disabled={{ before: new Date() }}
-                  />
-                  <div className="p-3 flex flex-col gap-3">
-                    <Select
-                      value={departingTime}
-                      onValueChange={setDepartingTime}
-                    >
-                      <SelectTrigger className="font-light">
-                        <SelectValue placeholder="Departing time" />
-                      </SelectTrigger>
-                      <SelectContent className="font-light">
-                        <SelectItem value="any time">any time</SelectItem>
-                        <SelectItem value="Early morning">
-                          Early morning
-                        </SelectItem>
-                        <SelectItem value="Morning">Morning</SelectItem>
-                        <SelectItem value="Afternoon">Afternoon</SelectItem>
-                        <SelectItem value="Evening">Evening</SelectItem>
-                        <SelectItem value="Late evening">
-                          Late evening
-                        </SelectItem>
-                        <SelectItem value="Set time">Set time</SelectItem>
-                      </SelectContent>
-                    </Select>
-
-                    {departingTime === "Set time" && (
-                      <div className="flex items-center gap-5">
-                        <span className="text-sm font-light">Time</span>
-                        <Select>
-                          <SelectTrigger className="font-light">
-                            <SelectValue placeholder="Select" />
-                          </SelectTrigger>
-                          <SelectContent className="font-light">
-                            {timeArray.map((time, i) => {
-                              return (
-                                <SelectItem key={i} value={time}>
-                                  {time}
-                                </SelectItem>
-                              );
-                            })}
-                          </SelectContent>
-                        </Select>
+      <div className="text-black text-sm">
+        <div className="border border-black rounded-3xl lg:rounded-full h-auto flex lg:flex-row flex-col lg:pr-5">
+          <div className="w-full grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 items-center font-medium">
+            {/* From Input */}
+            <div className="pl-7 py-5">
+              <div className="w-full flex items-center gap-3 relative">
+                <PlaneTakeoff size={20} strokeWidth={1.25} />
+                <Input
+                  value={from}
+                  onChange={handleFromChange}
+                  placeholder="From"
+                  className="border-none shadow-none focus-visible:ring-0 placeholder:font-light font-light"
+                />
+                {fromResults.length > 0 && (
+                  <div className="absolute top-12 left-0 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+                    {fromResults.map((airport) => (
+                      <div
+                        key={airport.iata}
+                        className="p-2 hover:bg-gray-100 cursor-pointer"
+                        onClick={() => handleSelectFrom(airport)}
+                      >
+                        {airport.name} ({airport.iata}) - {airport.city}
                       </div>
-                    )}
+                    ))}
                   </div>
-                </PopoverContent>
-              </Popover>
+                )}
+              </div>
             </div>
-            <div className="w-full flex items-center gap-3">
-              <Popover>
-                <PopoverTrigger className="tracking-wider">
-                  <div className="flex flex-col">
-                    <span className="text-sm font-light">
-                      {returnDate
-                        ? returnDate.toLocaleDateString()
-                        : "Add return"}
-                    </span>
-                    <span className="text-xs font-light">
-                      {returnDate && returnDepartingTime}
-                    </span>
-                  </div>
-                </PopoverTrigger>
-                <PopoverContent className="z-10 my-4 rounded-md border shadow bg-white">
-                  <Calendar
-                    mode="single"
-                    selected={returnDate}
-                    onSelect={setReturnDate}
-                    disabled={{ before: new Date() }}
-                  />
-                  <div className="p-3 flex flex-col gap-3">
-                    <Select
-                      value={returnDepartingTime}
-                      onValueChange={setReturnDepartingTime}
-                    >
-                      <SelectTrigger className="font-light">
-                        <SelectValue placeholder="Departing time" />
-                      </SelectTrigger>
-                      <SelectContent className="font-light">
-                        <SelectItem value="Early morning">
-                          Early morning
-                        </SelectItem>
-                        <SelectItem value="Morning">Morning</SelectItem>
-                        <SelectItem value="Afternoon">Afternoon</SelectItem>
-                        <SelectItem value="Evening">Evening</SelectItem>
-                        <SelectItem value="Late evening">
-                          Late evening
-                        </SelectItem>
-                        <SelectItem value="Set time">Set time</SelectItem>
-                      </SelectContent>
-                    </Select>
 
-                    {returnDepartingTime === "Set time" && (
-                      <div className="flex items-center gap-5">
-                        <span className="text-sm font-light">Time</span>
-                        <Select>
-                          <SelectTrigger className="font-light">
-                            <SelectValue placeholder="Select" />
-                          </SelectTrigger>
-                          <SelectContent className="font-light">
-                            {timeArray.map((time, i) => {
-                              return (
-                                <SelectItem key={i} value={time}>
-                                  {time}
-                                </SelectItem>
-                              );
-                            })}
-                          </SelectContent>
-                        </Select>
+            {/* To Input */}
+            <div className="py-5 md:border-l max-md:border-t border-black">
+              <div className=" w-full flex items-center gap-3 pl-4 h-full relative">
+                <PlaneLanding size={20} strokeWidth={1.25} />
+                <Input
+                  value={to}
+                  onChange={handleToChange}
+                  placeholder="To"
+                  className="border-none shadow-none focus-visible:ring-0 placeholder:font-light font-light"
+                />
+                {toResults.length > 0 && (
+                  <div className="absolute top-12 left-0 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+                    {toResults.map((airport) => (
+                      <div
+                        key={airport.iata}
+                        className="p-2 hover:bg-gray-100 cursor-pointer"
+                        onClick={() => handleSelectTo(airport)}
+                      >
+                        {airport.name} ({airport.iata}) - {airport.city}
                       </div>
-                    )}
+                    ))}
                   </div>
-                </PopoverContent>
-              </Popover>
+                )}
+              </div>
             </div>
-          </div>
-          <div className="border-l border-black w-full flex items-center justify-between pl-4 h-full">
-            <div className="flex items-center gap-5 font-light">
-              <button
-                className="disabled:opacity-50"
-                onClick={decrement}
-                disabled={passenger <= 1}
-              >
-                <CircleMinus size={20} strokeWidth={1.25} />
-              </button>
-              {passenger} {passenger === 1 ? "Passenger" : "Passengers"}
-              <button
-                className="disabled:opacity-50"
-                onClick={increment}
-                disabled={passenger >= 14}
-              >
-                <CirclePlus size={20} strokeWidth={1.25} />
-              </button>
-            </div>
-            <button
-              className={
-                active
-                  ? "hidden"
-                  : "block disabled:opacity-50 disabled:cursor-not-allowed"
-              }
-              disabled={!from || !to || !date}
-              onClick={() => setActive(true)}
+
+            {/* Date and Time Picker */}
+            <div
+              className={`${
+                date && departingTime ? "py-3" : "py-5"
+              } max-lg:pl-3 max-lg:border-t lg:border-l border-black`}
             >
-              <ArrowRight size={16} />
-            </button>
+              <div className="w-full flex items-center justify-between pl-4 h-full">
+                <div className="w-full flex items-center gap-3 py-2">
+                  <Popover>
+                    <PopoverTrigger className="flex items-center gap-5">
+                      <CalendarIcon size={20} strokeWidth={1.25} />
+                      <div className="flex flex-col">
+                        <span className="text-sm font-light">
+                          {date ? date.toLocaleDateString() : "Date"}
+                        </span>
+                        <span className="text-xs font-light">
+                          {date && departingTime}
+                        </span>
+                      </div>
+                    </PopoverTrigger>
+                    <PopoverContent className="z-10 my-5 rounded-md border shadow bg-white">
+                      <Calendar
+                        mode="single"
+                        selected={date}
+                        onSelect={setDate}
+                        disabled={{ before: new Date() }}
+                      />
+                      <div className="p-3 flex flex-col gap-3">
+                        <Select
+                          value={departingTime}
+                          onValueChange={setDepartingTime}
+                        >
+                          <SelectTrigger className="font-light">
+                            <SelectValue placeholder="Departing time" />
+                          </SelectTrigger>
+                          <SelectContent className="font-light">
+                            <SelectItem value="any time">any time</SelectItem>
+                            <SelectItem value="Early morning">
+                              Early morning
+                            </SelectItem>
+                            <SelectItem value="Morning">Morning</SelectItem>
+                            <SelectItem value="Afternoon">Afternoon</SelectItem>
+                            <SelectItem value="Evening">Evening</SelectItem>
+                            <SelectItem value="Late evening">
+                              Late evening
+                            </SelectItem>
+                            {/* <SelectItem value="Set time">Set time</SelectItem> */}
+                          </SelectContent>
+                        </Select>
+
+                        {/* {departingTime === "Set time" && (
+                      <div className="flex items-center gap-5">
+                        <span className="text-sm font-light">Time</span>
+                        <Select>
+                          <SelectTrigger className="font-light">
+                            <SelectValue placeholder="Select" />
+                          </SelectTrigger>
+                          <SelectContent className="font-light">
+                            {timeArray.map((time, i) => (
+                              <SelectItem key={i} value={time}>
+                                {time}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    )} */}
+                      </div>
+                    </PopoverContent>
+                  </Popover>
+                </div>
+                <div className="w-full flex items-center gap-3">
+                  <Popover>
+                    <PopoverTrigger className="tracking-wider">
+                      <div className="flex flex-col">
+                        <span className="text-sm font-light">
+                          {returnDate
+                            ? returnDate.toLocaleDateString()
+                            : "Add return"}
+                        </span>
+                        <span className="text-xs font-light">
+                          {returnDate && returnDepartingTime}
+                        </span>
+                      </div>
+                    </PopoverTrigger>
+                    <PopoverContent className="z-10 my-4 rounded-md border shadow bg-white">
+                      <Calendar
+                        mode="single"
+                        selected={returnDate}
+                        onSelect={setReturnDate}
+                        disabled={{ before: new Date() }}
+                      />
+                      <div className="p-3 flex flex-col gap-3">
+                        <Select
+                          value={returnDepartingTime}
+                          onValueChange={setReturnDepartingTime}
+                        >
+                          <SelectTrigger className="font-light">
+                            <SelectValue placeholder="Departing time" />
+                          </SelectTrigger>
+                          <SelectContent className="font-light">
+                            <SelectItem value="Early morning">
+                              Early morning
+                            </SelectItem>
+                            <SelectItem value="Morning">Morning</SelectItem>
+                            <SelectItem value="Afternoon">Afternoon</SelectItem>
+                            <SelectItem value="Evening">Evening</SelectItem>
+                            <SelectItem value="Late evening">
+                              Late evening
+                            </SelectItem>
+                            {/* <SelectItem value="Set time">Set time</SelectItem> */}
+                          </SelectContent>
+                        </Select>
+
+                        {/* {returnDepartingTime === "Set time" && (
+                      <div className="flex items-center gap-5">
+                        <span className="text-sm font-light">Time</span>
+                        <Select>
+                          <SelectTrigger className="font-light">
+                            <SelectValue placeholder="Select" />
+                          </SelectTrigger>
+                          <SelectContent className="font-light">
+                            {timeArray.map((time, i) => (
+                              <SelectItem key={i} value={time}>
+                                {time}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    )} */}
+                      </div>
+                    </PopoverContent>
+                  </Popover>
+                </div>
+              </div>
+            </div>
+
+            {/* Passenger Counter */}
+            <div className="py-5 md:border-l max-lg:border-t border-black">
+              <div className="py-2 w-full flex items-center justify-between pl-4 h-full">
+                <div className="flex items-center gap-5 font-light">
+                  <button
+                    className="disabled:opacity-50"
+                    onClick={decrement}
+                    disabled={passenger <= 1}
+                  >
+                    <CircleMinus size={20} strokeWidth={1.25} />
+                  </button>
+                  {passenger} {passenger === 1 ? "Passenger" : "Passengers"}
+                  <button
+                    className="disabled:opacity-50"
+                    onClick={increment}
+                    disabled={passenger >= 14}
+                  >
+                    <CirclePlus size={20} strokeWidth={1.25} />
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
+          <button
+            className={`${
+              active
+                ? "hidden"
+                : "block disabled:opacity-50 disabled:cursor-not-allowed"
+            } max-lg:py-2 max-lg:disabled:bg-zinc-300 max-lg:bg-red-700 text-center rounded-b-3xl`}
+            disabled={!from || !to || !date}
+            onClick={() => setActive(true)}
+          >
+            <ArrowRight size={16} className="max-lg:hidden" />
+            <h1 className="text-white lg:hidden">NEXT</h1>
+          </button>
         </div>
-        {/* 2nd sec */}
+
+        {/* Multi-City Section */}
         {active === false && (
           <h1 className="text-sm opacity-60 mt-5 tracking-wider">
             Need more flights? Switch to{" "}
@@ -285,10 +400,10 @@ export default function Form() {
         )}
         {active && (
           <div className="mt-5">
-            <button className="py-3 px-7 border border-black rounded-full text-xs tracking-widest font-light">
+            {/* <button className="py-3 px-7 border border-black rounded-full text-xs tracking-widest font-light">
               ADD FLIGHT
-            </button>
-            <div className="flex justify-between gap-10 mt-8 h-auto">
+            </button> */}
+            <div className="flex lg:flex-row flex-col justify-between gap-10 mt-8 h-auto">
               <div className="w-full flex flex-col gap-3">
                 <div className="flex items-center">
                   <span className="w-[100px] font-light tracking-wider">
@@ -364,11 +479,11 @@ export default function Form() {
                 </label>
                 <Textarea
                   onChange={(e) => setAdditional(e.target.value)}
-                  className="h-full mt-1 font-light"
+                  className="h-full mt-1 font-light max-lg:min-h-[200px]"
                 />
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-x-10 mt-5">
+            <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-10 mt-5">
               <div className="flex flex-col gap-1 mt-5">
                 <label className="font-light tracking-wider">
                   How often do you fly privately?
@@ -419,7 +534,7 @@ export default function Form() {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="flex flex-col gap-1 mt-10">
+              <div className="flex flex-col gap-1 lg:mt-10 mt-5">
                 <label className="font-light tracking-wider">
                   How did you hear about VistaJet?
                 </label>
@@ -450,7 +565,7 @@ export default function Form() {
             </div>
             <label
               htmlFor=""
-              className="flex items-center gap-5 mt-10 text-base tracking-wider font-light"
+              className="flex items-center gap-5 mt-10 text-base tracking-wider font-light max-lg:text-sm"
             >
               <input
                 type="checkbox"
