@@ -6,15 +6,37 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.10.0",
     "@prisma/client": "^6.3.0",
+<<<<<<< HEAD
     "bcryptjs": "^2.4.3",
+=======
+    "@radix-ui/react-dialog": "^1.1.5",
+    "@radix-ui/react-popover": "^1.1.5",
+    "@radix-ui/react-select": "^2.1.5",
+    "@radix-ui/react-slot": "^1.1.1",
+    "airports": "^1.0.0",
+    "axios": "^1.7.9",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "embla-carousel-react": "^8.5.2",
+    "framer-motion": "^12.0.11",
+    "lucide-react": "^0.474.0",
+>>>>>>> e8f9bef9745849bb53b33517a256e7c08a583d4e
     "next": "15.1.6",
     "next-auth": "^4.24.11",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-day-picker": "^8.10.1",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.54.2",
+    "react-phone-number-input": "^3.4.11",
+    "tailwind-merge": "^3.0.1",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
