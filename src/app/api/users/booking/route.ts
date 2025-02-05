@@ -47,10 +47,12 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(booking, { status: 201 });
   } catch (error) {
     console.error("Error creating booking:", error);
-    return NextResponse.json(
-      { error: error.message || "Error creating booking" },
-      { status: 500 }
-    );
+
+    // Assert the error type before accessing its message
+    const errorMessage =
+      error instanceof Error ? error.message : "Error creating booking";
+
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 }
 
@@ -61,9 +63,11 @@ export async function GET() {
     return NextResponse.json(bookings, { status: 200 });
   } catch (error) {
     console.error("Error fetching bookings:", error);
-    return NextResponse.json(
-      { error: error.message || "Error fetching bookings" },
-      { status: 500 }
-    );
+
+    // Assert the error type before accessing its message
+    const errorMessage =
+      error instanceof Error ? error.message : "Error fetching bookings";
+
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 }
