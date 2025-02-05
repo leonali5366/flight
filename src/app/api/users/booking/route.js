@@ -15,10 +15,11 @@ export async function POST(req) {
       flyFrequency,
       flyingSolution,
       heardAbout,
-      flights, 
+      flights,
+      userId, 
     } = await req.json();
 
-    // Validation for required fields
+    // Validate required fields
     if (
       !title ||
       !firstName ||
@@ -32,10 +33,13 @@ export async function POST(req) {
       !Array.isArray(flights) ||
       flights.length === 0
     ) {
-      return NextResponse.json({
-        status: "Fail",
-        message: "All fields are required, and at least one flight must be provided.",
-      }, { status: 400 });
+      return NextResponse.json(
+        {
+          status: "Fail",
+          message: "All fields are required, and at least one flight must be provided.",
+        },
+        { status: 400 }
+      );
     }
 
     // Validate each flight
@@ -47,14 +51,17 @@ export async function POST(req) {
         !flight.passengers ||
         !flight.timeOfDay
       ) {
-        return NextResponse.json({
-          status: "Fail",
-          message: "Each flight must include 'from', 'to', 'departureDate', 'passengers', and 'timeOfDay'.",
-        }, { status: 400 });
+        return NextResponse.json(
+          {
+            status: "Fail",
+            message: "Each flight must include 'from', 'to', 'departureDate', 'passengers', and 'timeOfDay'.",
+          },
+          { status: 400 }
+        );
       }
     }
 
-    // Create a new booking with associated flights
+    // Create a new booking
     const newBooking = await prisma.booking.create({
       data: {
         title,
@@ -66,8 +73,9 @@ export async function POST(req) {
         flyFrequency,
         flyingSolution,
         heardAbout,
+        userId: userId || null, 
         flights: {
-          create: flights.map(flight => ({
+          create: flights.map((flight) => ({
             from: flight.from,
             to: flight.to,
             departureDate: new Date(flight.departureDate),
@@ -82,16 +90,22 @@ export async function POST(req) {
       },
     });
 
-    return NextResponse.json({
-      status: "Success",
-      data: newBooking,
-    }, { status: 201 });
+    return NextResponse.json(
+      {
+        status: "Success",
+        data: newBooking,
+      },
+      { status: 201 }
+    );
   } catch (error) {
     console.error("Error creating booking:", error);
-    return NextResponse.json({
-      status: "Fail",
-      message: error.message || "Failed to create booking",
-    }, { status: 500 });
+    return NextResponse.json(
+      {
+        status: "Fail",
+        message: error.message || "Failed to create booking.",
+      },
+      { status: 500 }
+    );
   } finally {
     await prisma.$disconnect();
   }
@@ -104,13 +118,14 @@ export async function POST(req) {
 export async function GET(req) {
   try {
     const { searchParams } = new URL(req.url);
-    const id = searchParams.get("id");
+    const id = searchParams.get("id"); 
+    const userId = searchParams.get("userId"); 
 
     if (id) {
       // Fetch a single booking by ID with its associated flights
       const booking = await prisma.booking.findUnique({
         where: { id },
-        include: { flights: true }, // Include associated flights
+        include: { flights: true }, 
       });
 
       if (!booking) {
@@ -127,10 +142,21 @@ export async function GET(req) {
         status: "Success",
         data: booking,
       });
+    } else if (userId) {
+      // Fetch all bookings for a specific user with their associated flights
+      const bookings = await prisma.booking.findMany({
+        where: { userId }, 
+        include: { flights: true }, 
+      });
+
+      return NextResponse.json({
+        status: "Success",
+        data: bookings,
+      });
     } else {
       // Fetch all bookings with their associated flights
       const bookings = await prisma.booking.findMany({
-        include: { flights: true }, // Include associated flights
+        include: { flights: true }, 
       });
 
       return NextResponse.json({

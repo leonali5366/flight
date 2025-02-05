@@ -1,10 +1,9 @@
 import { PrismaClient } from '@prisma/client';
 import { NextResponse } from 'next/server';
-
+const prisma = new PrismaClient();
 
 // REQUEST FOR MEMBERSHIP
 export async function POST(req) {
-  const prisma = new PrismaClient();
 
   try {
     const { title, firstName, lastName, email, phone, message, flyFrequency,flyingSolution,heardAbout } = await req.json();
@@ -48,7 +47,6 @@ export async function POST(req) {
 }
 
 // GET ALL MEMBERSHIP LIST
-const prisma = new PrismaClient();
 export async function GET(req) {
   try {
     const { searchParams } = new URL(req.url);
