@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/dialog";
 import Header from "../components/experience/Header";
 import Image from "next/image";
+import Link from "next/link";
 // import MembershipForm from "../components/MembershipForm";
 
 const service = [
@@ -120,9 +121,11 @@ export default function Experience() {
                           <p className="text-xs tracking-wider text-zinc-600 leading-6">
                             {data?.des3}
                           </p>
-                          <button className="px-4 py-2 rounded-full bg-red-700 transition-colors duration-300 ease-in-out hover:bg-red-800 w-fit uppercase text-white text-[.6rem] tracking-widest">
-                            SE RENSEIGNER MAINTENANT
-                          </button>
+                          <Link href={"/request-a-quote"}>
+                            <button className="px-4 py-2 rounded-full bg-red-700 transition-colors duration-300 ease-in-out hover:bg-red-800 w-fit uppercase text-white text-[.6rem] tracking-widest">
+                              SE RENSEIGNER MAINTENANT
+                            </button>
+                          </Link>
                         </div>
                         <div className="w-full">
                           <Image
@@ -170,9 +173,9 @@ export default function Experience() {
                   membres bénéficient d&apos;une hospitalité ultime, d&apos;une
                   intimité et d&apos;un service personnalisé.
                 </p>
-                <button className="px-4 py-2 rounded-full bg-red-700 transition-colors duration-300 ease-in-out hover:bg-red-800 w-fit uppercase text-white text-[.6rem] tracking-widest">
+                {/* <button className="px-4 py-2 rounded-full bg-red-700 transition-colors duration-300 ease-in-out hover:bg-red-800 w-fit uppercase text-white text-[.6rem] tracking-widest">
                   SE RENSEIGNER MAINTENANT
-                </button>
+                </button> */}
               </div>
             </div>
           </div>

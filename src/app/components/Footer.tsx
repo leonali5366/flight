@@ -1,13 +1,19 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <div className="bg-[#B82E3F] sm:h-[250px] flex flex-col justify-between gap-10 p-10 text-white">
       <div className="flex place-content-center gap-5 mt-5">
-        <button className="tracking-widest font-light hover:underline uppercase">
-          La flotte
-        </button>
-        <button className="tracking-widest font-light hover:underline uppercase">
-          Expérience
-        </button>
+        <Link href={"/fleet"}>
+          <button className="tracking-widest font-light hover:underline uppercase">
+            La flotte
+          </button>
+        </Link>
+        <Link href={"/experience"}>
+          <button className="tracking-widest font-light hover:underline uppercase">
+            Expérience
+          </button>
+        </Link>
       </div>
       <p className="text-xs font-light tracking-wider">
         © VistaJet 2025 . VistaJet®, Vista® et le logo VistaJet® sono marchi

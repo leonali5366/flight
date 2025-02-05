@@ -16,6 +16,7 @@ import {
   CalendarIcon,
   CircleMinus,
   CirclePlus,
+  Loader,
   PlaneLanding,
   PlaneTakeoff,
 } from "lucide-react";
@@ -23,6 +24,7 @@ import { useState } from "react";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import airports from "airports"; // Import the airports library
+import { toast } from "sonner";
 
 // const generateTimeArray = () => {
 //   const times = [];
@@ -37,37 +39,75 @@ import airports from "airports"; // Import the airports library
 // };
 
 interface Airport {
-  iata: string; // Airport code (e.g., "JFK")
-  name: string; // Airport name (e.g., "John F. Kennedy International Airport")
-  city: string; // City name (e.g., "New York")
-  country: string; // Country name (e.g., "United States")
+  iata: string;
+  name: string | null; // Allow null values
+  city?: string;
+  country?: string;
+  lat?: string;
+  lon?: string;
+  iso?: string;
+  status?: number;
+  continent?: string;
+  type?: string;
+  size?: string | null;
 }
 
+type BookingStatus = "PENDING" | "COMPLETE";
+
+type Booking = {
+  id: string;
+  title: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  additionalRequests?: string;
+  flyFrequency: string;
+  flyingSolution: string;
+  heardAbout: string;
+  from: string;
+  to: string;
+  departureDate: string;
+  returnDate?: string;
+  passenger: number;
+  departureTime: string;
+  returnDepartureTime?: string;
+  status: BookingStatus;
+  createdAt: string; // DateTime is stored as string in JSON
+  updatedAt: string; // DateTime is stored as string in JSON
+};
+
+type BookingResponse = {
+  status: string;
+  message?: string;
+  data?: Booking;
+};
 export default function Form() {
   // const timeArray = generateTimeArray();
   const [active, setActive] = useState<boolean>(false);
+  const [titleOther, setTitleOther] = useState<string>();
   const [from, setFrom] = useState<string>("");
   const [to, setTo] = useState<string>("");
   const [date, setDate] = useState<Date>();
   const [returnDate, setReturnDate] = useState<Date>();
-  const [departingTime, setDepartingTime] = useState<string>();
-  const [returnDepartingTime, setReturnDepartingTime] = useState<string>();
+  const [departingTime, setDepartingTime] = useState<string>("");
+  const [returnDepartingTime, setReturnDepartingTime] = useState<string>("");
   const [passenger, setPassenger] = useState<number>(1);
-  const [title, setTitle] = useState<string>();
-  const [titleOther, setTitleOther] = useState<string>();
-  const [firstName, setFirstName] = useState<string>();
-  const [lastName, setLastName] = useState<string>();
-  const [email, setEmail] = useState<string>();
+  const [title, setTitle] = useState<string>("");
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
   const [phone, setPhone] = useState<string | undefined>(undefined);
   const [additional, setAdditional] = useState<string>("");
-  const [flightFrequency, setFlightFrequency] = useState<string>();
-  const [flyingSolution, setFlyingSolution] = useState<string>();
-  const [hearAboutUs, setHearAboutUs] = useState<string>();
-  const [marketingConsent, setMarketingConsent] = useState<boolean>();
+  const [flightFrequency, setFlightFrequency] = useState<string>("");
+  const [flyingSolution, setFlyingSolution] = useState<string>("");
+  const [hearAboutUs, setHearAboutUs] = useState<string>("");
 
   // State for airport search results
   const [fromResults, setFromResults] = useState<Airport[]>([]);
   const [toResults, setToResults] = useState<Airport[]>([]);
+
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   // Increment function: prevent going above 14
   const increment = () => {
@@ -82,7 +122,6 @@ export default function Form() {
       setPassenger(passenger - 1);
     }
   };
-
   // Handle "From" input change
   const handleFromChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -140,18 +179,72 @@ export default function Form() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(
-      from,
-      to,
-      additional,
-      titleOther,
+    setIsSubmitting(true);
+    const data = {
+      title: title === "other" ? titleOther : title,
       firstName,
       lastName,
       email,
-      marketingConsent
-    );
+      phone,
+      additionalRequests: additional,
+      flyFrequency: flightFrequency,
+      flyingSolution,
+      heardAbout: hearAboutUs,
+      from,
+      to,
+      departureDate: date?.toISOString(), // Convert Date to string
+      returnDate: returnDate ? returnDate.toISOString() : "", // Optional return date
+      passenger,
+      departureTime: departingTime,
+      returnDepartureTime: returnDepartingTime ?? "",
+    };
+    try {
+      const response = await fetch("/api/users/booking", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      console.log(data);
+
+      const result: BookingResponse = await response.json();
+
+      if (response.ok) {
+        toast.success("Booking request submitted successfully!");
+        resetForm();
+      } else {
+        toast.error(`Error: ${result.message}`);
+      }
+      setIsSubmitting(false);
+    } catch (error) {
+      console.error("Error submitting booking:", error);
+      toast.error("Failed to submit booking request.");
+      setIsSubmitting(false);
+    }
+  };
+
+  const resetForm = () => {
+    setTitle("");
+    setTitleOther("");
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPhone("");
+    setAdditional("");
+    setFlightFrequency("");
+    setFlyingSolution("");
+    setHearAboutUs("");
+    setFrom("");
+    setTo("");
+    setDate(undefined);
+    setReturnDate(undefined);
+    setPassenger(1); // or any default value you want
+    setDepartingTime("");
+    setReturnDepartingTime("");
   };
 
   return (
@@ -354,6 +447,7 @@ export default function Form() {
               <div className="py-2 w-full flex items-center justify-between pl-4 h-full">
                 <div className="flex items-center gap-5 font-light">
                   <button
+                    type="button"
                     className="disabled:opacity-50"
                     onClick={decrement}
                     disabled={passenger <= 1}
@@ -362,6 +456,7 @@ export default function Form() {
                   </button>
                   {passenger} {passenger === 1 ? "Passenger" : "Passengers"}
                   <button
+                    type="button"
                     className="disabled:opacity-50"
                     onClick={increment}
                     disabled={passenger >= 14}
@@ -373,12 +468,13 @@ export default function Form() {
             </div>
           </div>
           <button
+            type="button"
             className={`${
               active
                 ? "hidden"
                 : "block disabled:opacity-50 disabled:cursor-not-allowed"
             } max-lg:py-2 max-lg:disabled:bg-zinc-300 max-lg:bg-red-700 text-center rounded-b-3xl`}
-            disabled={!from || !to || !date}
+            disabled={!from || !to || !date || !departingTime}
             onClick={() => setActive(true)}
           >
             <ArrowRight size={16} className="max-lg:hidden" />
@@ -386,18 +482,6 @@ export default function Form() {
           </button>
         </div>
 
-        {/* Multi-City Section */}
-        {active === false && (
-          <h1 className="text-sm opacity-60 mt-5 tracking-wider">
-            Need more flights? Switch to{" "}
-            <button
-              onClick={() => setActive(true)}
-              className="underline hover:text-red-700 transition-colors duration-300 ease-in-out"
-            >
-              multi-city
-            </button>
-          </h1>
-        )}
         {active && (
           <div className="mt-5">
             {/* <button className="py-3 px-7 border border-black rounded-full text-xs tracking-widest font-light">
@@ -563,27 +647,28 @@ export default function Form() {
                 </Select>
               </div>
             </div>
-            <label
-              htmlFor=""
-              className="flex items-center gap-5 mt-10 text-base tracking-wider font-light max-lg:text-sm"
-            >
-              <input
-                type="checkbox"
-                onChange={(e) => setMarketingConsent(e.target.checked)}
-                className="size-5"
-              />
-              I would like to receive marketing communications from VistaJet by
-              email, post or text message.
-            </label>
-            <p className="text-xs text-zinc-600 tracking-wider mt-5">
-              By submitting this form you consent to the processing of your
-              personal data in accordance with the VistaJet Privacy Notice.
-            </p>
             <button
+              disabled={
+                isSubmitting ||
+                !(
+                  (title === "other" ? titleOther : title) &&
+                  firstName &&
+                  lastName &&
+                  email &&
+                  phone &&
+                  flightFrequency &&
+                  flyingSolution &&
+                  hearAboutUs
+                )
+              }
               type="submit"
-              className="px-7 py-2 rounded-full bg-red-700 font-medium text-white text-[12.8px] opacity-90 tracking-wider mt-5 hover:bg-red-800 transition-colors duration-300 ease-in-out"
+              className="relative flex items-center justify-center disabled:cursor-not-allowed disabled:bg-zinc-500 px-7 py-2 rounded-full bg-red-700 font-medium text-white text-[12.8px] opacity-90 tracking-wider mt-10 hover:bg-red-800 transition-colors duration-300 ease-in-out"
             >
-              REQUEST FLIGHT
+              {isSubmitting ? (
+                <Loader className="w-5 h-5 animate-spin" />
+              ) : (
+                "REQUEST FLIGHT"
+              )}
             </button>
           </div>
         )}

@@ -2,7 +2,13 @@ import { motion } from "framer-motion";
 import { slide } from "./anime";
 import Link from "next/link";
 
-export default function Links({ data }) {
+interface LinkData {
+  title: string;
+  href: string;
+  index: number;
+}
+
+export default function Links({ data }: { data: LinkData }) {
   const { title, href, index } = data;
 
   return (
