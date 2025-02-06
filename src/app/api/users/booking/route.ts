@@ -1,4 +1,5 @@
 import prisma from "@/lib/prisma";
+import { BookingStatus } from "@prisma/client"; // ✅ Import the enum
 import { NextRequest, NextResponse } from "next/server";
 
 // POST: Create a new booking
@@ -57,16 +58,25 @@ export async function POST(req: NextRequest) {
 }
 
 // GET: Retrieve all bookings
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const status = searchParams.get("status");
+export async function GET(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const status = searchParams.get("status") as BookingStatus | null; // ✅ Cast to enum
 
-  const where = status && status !== "all" ? { status } : {};
+    const where = status && status !== "all" ? { status } : {};
 
-  const bookings = await prisma.booking.findMany({
-    where,
-    orderBy: { createdAt: "desc" },
-  });
+    const bookings = await prisma.booking.findMany({
+      where,
+      orderBy: { createdAt: "desc" },
+    });
 
-  return NextResponse.json(bookings);
+    return NextResponse.json(bookings);
+  } catch (error) {
+    console.error("Error fetching bookings:", error);
+
+    return NextResponse.json(
+      { message: "Failed to fetch bookings", error: String(error) },
+      { status: 500 }
+    );
+  }
 }
