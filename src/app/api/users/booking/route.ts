@@ -56,21 +56,24 @@ export async function POST(req: NextRequest) {
   }
 }
 
-// Define the BookingStatus type
+/// Define the BookingStatus type
 type BookingStatus = "pending" | "complete";
 
 // Define the type for the status filter, including "all"
-type StatusFilter = BookingStatus | "all";
+type StatusFilter = BookingStatus | null;
 
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
-    const status = searchParams.get("status") as StatusFilter | null; // Cast to StatusFilter
+    const status = searchParams.get("status") as StatusFilter; // Get the 'status' search param
 
     // Build the `where` clause
-    const where = status && status !== "all" ? { status } : {};
+    let where = {};
+    if (status === "pending" || status === "complete") {
+      where = { status }; // Filter by status if it's "pending" or "complete"
+    }
 
-    // Fetch bookings
+    // Fetch bookings with the appropriate `where` clause
     const bookings = await prisma.booking.findMany({
       where,
       orderBy: { createdAt: "desc" },

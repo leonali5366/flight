@@ -56,9 +56,9 @@ interface Booking {
 
 export default function BookingsTable() {
   const queryClient = useQueryClient();
-  const [statusFilter, setStatusFilter] = useState<
-    "all" | "pending" | "complete"
-  >("all");
+  const [statusFilter, setStatusFilter] = useState<"" | "pending" | "complete">(
+    ""
+  );
 
   const {
     data: bookings,
@@ -129,7 +129,7 @@ export default function BookingsTable() {
         <h1 className="text-2xl font-bold">Bookings</h1>
         <Select
           value={statusFilter}
-          onValueChange={(value: "all" | "pending" | "complete") =>
+          onValueChange={(value: "" | "pending" | "complete") =>
             setStatusFilter(value)
           }
         >
