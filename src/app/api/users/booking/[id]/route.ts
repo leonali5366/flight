@@ -1,16 +1,26 @@
+import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
-import { NextResponse } from "next/server";
 
 export async function PATCH(
-  request: Request,
+  request: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  const { status } = await request.json();
+  try {
+    const { status } = await request.json();
 
-  const updatedBooking = await prisma.booking.update({
-    where: { id: params.id },
-    data: { status },
-  });
+    const updatedBooking = await prisma.booking.update({
+      where: { id: params.id },
+      data: { status },
+    });
 
-  return NextResponse.json(updatedBooking);
+    return NextResponse.json(updatedBooking);
+  } catch (error) {
+    let errorMessage = "Failed to update booking";
+
+    if (error instanceof Error) {
+      errorMessage = error.message;
+    }
+
+    return NextResponse.json({ message: errorMessage }, { status: 500 });
+  }
 }
