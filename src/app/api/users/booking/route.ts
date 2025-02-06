@@ -1,5 +1,4 @@
 import prisma from "@/lib/prisma";
-import { BookingStatus } from "@prisma/client"; // ✅ Import the enum
 import { NextRequest, NextResponse } from "next/server";
 
 // POST: Create a new booking
@@ -57,14 +56,21 @@ export async function POST(req: NextRequest) {
   }
 }
 
-// GET: Retrieve all bookings
+// Define the BookingStatus type
+type BookingStatus = "pending" | "complete";
+
+// Define the type for the status filter, including "all"
+type StatusFilter = BookingStatus | "all";
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
-    const status = searchParams.get("status") as BookingStatus | null; // ✅ Cast to enum
+    const status = searchParams.get("status") as StatusFilter | null; // Cast to StatusFilter
 
+    // Build the `where` clause
     const where = status && status !== "all" ? { status } : {};
 
+    // Fetch bookings
     const bookings = await prisma.booking.findMany({
       where,
       orderBy: { createdAt: "desc" },
