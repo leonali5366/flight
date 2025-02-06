@@ -2,12 +2,38 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Globe } from "lucide-react";
 import Sidebar from "../components/sidebar/Sidebar";
 
 export default function Nav() {
   const [isScrolled, setIsScrolled] = useState(false); // Track if the user has scrolled
   const [isNavVisible, setIsNavVisible] = useState(true); // Track if the navbar is visible
   const [lastScrollY, setLastScrollY] = useState(0); // Track the last scroll position
+
+  const [lang, setLang] = useState("");
+
+  useEffect(() => {
+    // Check if the code is running in the browser (i.e., window is defined)
+    if (typeof window !== "undefined") {
+      const existingLang = localStorage.getItem("lang");
+
+      if (existingLang) {
+        // If the lang is found in localStorage, set it to the state
+        setLang(existingLang);
+      } else {
+        // If no lang is found, set a default value in both localStorage and state
+        const defaultLang = "french"; // Example default language
+        localStorage.setItem("lang", defaultLang);
+        setLang(defaultLang);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,9 +64,18 @@ export default function Nav() {
   }, [lastScrollY, isNavVisible]);
   const [isActive, setIsActive] = useState(false);
 
+  const handleLangEnglish = () => {
+    localStorage.setItem("lang", "english");
+    window.location.reload();
+  };
+  const handleLangFrench = () => {
+    localStorage.setItem("lang", "french");
+    window.location.reload();
+  };
+
   return (
     <nav
-      className={`fixed top-0 left-0 w-full h-20 z-10 transition-all duration-300 ease-in-out ${
+      className={`fixed top-0 left-0 w-screen h-20 z-10 transition-all duration-300 ease-in-out ${
         isNavVisible ? "translate-y-0" : "-translate-y-full"
       } ${
         isScrolled
@@ -71,10 +106,14 @@ export default function Nav() {
             {isActive && <Sidebar />}
           </AnimatePresence>
           <li className="uppercase max-lg:hidden text-black">
-            <Link href={"/fleet"}>La flotte</Link>
+            <Link href={"/fleet"}>
+              {lang === "french" ? "La flotte" : "Fleet"}
+            </Link>
           </li>
           <li className="uppercase max-lg:hidden text-black">
-            <Link href={"/experience"}>Expérience</Link>
+            <Link href={"/experience"}>
+              {lang === "french" ? "Expérience" : "Experience"}
+            </Link>
           </li>
         </ul>
         <Link href={"/"}>
@@ -94,21 +133,55 @@ export default function Nav() {
         </Link>
         <div className="flex items-center gap-5">
           <span className="text-sm font-medium max-lg:hidden text-black">
-            Appelez-nous{" "}
+            {lang === "french" ? "Appelez-nous" : "Call Us:"}{" "}
             <a
-              href="tel:+1 (833) 853-8872"
-              className={`hover:text-red-500 transition-colors duration-300 ease-in-out underline`}
+              href={`tel:${
+                lang === "french" ? "+32 04 71 29 03 80" : "+35 19 17 36 52 90"
+              }`}
+              className={`hover:text-red-500 transition-colors duration-300 ease-in-out underline
+              }`}
             >
-              +1 (833) 853-8872
+              {lang === "french" ? "+32 04 71 29 03 80" : "+35 19 17 36 52 90"}
             </a>
           </span>
+          <div className="max-xl:hidden">
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <Globe className="text-black" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem
+                  onClick={handleLangEnglish}
+                  disabled={lang === "english"}
+                >
+                  <div className="flex flex-col items-start">
+                    <span className="text-sm font-semibold">United States</span>
+                    <span className="text-xs font-medium opacity-80">
+                      English
+                    </span>
+                  </div>
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onClick={handleLangFrench}
+                  disabled={lang === "french"}
+                >
+                  <div className="flex flex-col items-start">
+                    <span className="text-sm font-semibold">French</span>
+                    <span className="text-xs font-medium opacity-80">
+                      Français
+                    </span>
+                  </div>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
           <Link href={"/request-a-quote"}>
             <button
               className={`py-2 px-5
               bg-red-700 hover:bg-red-800 text-white
               transition-colors duration-300 ease-in-out rounded-full text-xs tracking-widest uppercase`}
             >
-              Demande de devis
+              {lang === "french" ? "Demande de devis" : "Request a quote"}
             </button>
           </Link>
         </div>

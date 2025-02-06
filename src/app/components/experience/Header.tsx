@@ -1,6 +1,26 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 export default function Header() {
+  const [lang, setLang] = useState("");
+
+  useEffect(() => {
+    // Check if the code is running in the browser (i.e., window is defined)
+    if (typeof window !== "undefined") {
+      const existingLang = localStorage.getItem("lang");
+
+      if (existingLang) {
+        // If the lang is found in localStorage, set it to the state
+        setLang(existingLang);
+      } else {
+        // If no lang is found, set a default value in both localStorage and state
+        const defaultLang = "french"; // Example default language
+        localStorage.setItem("lang", defaultLang);
+        setLang(defaultLang);
+      }
+    }
+  }, []);
   return (
     <div>
       <div className="relative h-screen flex items-center justify-center text-white overflow-hidden">
@@ -16,15 +36,25 @@ export default function Header() {
         {/* Content */}
         <div className="relative z-[2] flex flex-col items-center gap-10 text-center">
           <h1 className="text-6xl font-garamond-display">
-            L&apos;expérience ultime en jet privé
+            {lang === "french"
+              ? "L'expérience ultime en jet privé"
+              : "The ultimate private jet experience"}
           </h1>
-          <p className="font-light tracking-[0.3em] text-sm opacity-90">
-            UN VOYAGE EFFICACE ET FLUIDE AVEC UN SERVICE À BORD <br />{" "}
-            PARFAITEMENT ADAPTÉ À VOUS ET À VOS INVITÉS.
-          </p>
-          <button className="px-4 py-2 rounded-full bg-red-700 transition-colors duration-300 ease-in-out hover:bg-red-800 w-fit uppercase text-white text-[.6rem] tracking-widest">
+          {lang === "french" ? (
+            <p className="font-light tracking-[0.3em] text-sm opacity-90">
+              UN VOYAGE EFFICACE ET FLUIDE AVEC UN SERVICE À BORD <br />{" "}
+              PARFAITEMENT ADAPTÉ À VOUS ET À VOS INVITÉS.
+            </p>
+          ) : (
+            <p className="font-light tracking-[0.3em] text-sm opacity-90">
+              AN EFFICIENT AND SMOOTH JOURNEY WITH ONBOARD SERVICE <br />{" "}
+              PERFECTLY SUITED TO YOU AND YOUR GUESTS.
+            </p>
+          )}
+
+          {/* <button className="px-4 py-2 rounded-full bg-red-700 transition-colors duration-300 ease-in-out hover:bg-red-800 w-fit uppercase text-white text-[.6rem] tracking-widest">
             LES SERVICES À BORD EMBLÉMATIQUES DE VISTAJET
-          </button>
+          </button> */}
         </div>
       </div>
 
