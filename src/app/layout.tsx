@@ -1,8 +1,6 @@
 import { Metadata } from "next";
 import { Roboto, EB_Garamond } from "next/font/google";
 import "./globals.css";
-import Footer from "./components/Footer";
-import Nav from "./components/Nav";
 import { Toaster } from "sonner";
 
 // Import Roboto font
@@ -34,9 +32,7 @@ export default function RootLayout({
         className={`${roboto.variable} ${garamondDisplay.variable} antialiased`}
       >
         <Toaster richColors />
-        <Nav />
         {children}
-        <Footer />
       </body>
     </html>
   );

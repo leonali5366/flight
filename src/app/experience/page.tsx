@@ -7,6 +7,8 @@ import {
 import Header from "../components/experience/Header";
 import Image from "next/image";
 import Link from "next/link";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 // import MembershipForm from "../components/MembershipForm";
 
 const service = [
@@ -70,6 +72,7 @@ const service = [
 export default function Experience() {
   return (
     <div>
+      <Nav />
       <Header />
       <div className="bg-white">
         <div className="max-w-[1250px] mx-auto px-5 mt-16 flex flex-col gap-8">
@@ -200,6 +203,7 @@ export default function Experience() {
           </div> */}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

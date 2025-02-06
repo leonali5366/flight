@@ -1,4 +1,5 @@
 import React from "react";
+import Providers from "./Providers";
 
 export default function AdminLayout({
   children,
@@ -6,10 +7,8 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
-        <main>{children}</main>
-      </body>
-    </html>
+    <main>
+      <Providers>{children}</Providers>
+    </main>
   );
 }

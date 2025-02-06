@@ -57,17 +57,16 @@ export async function POST(req: NextRequest) {
 }
 
 // GET: Retrieve all bookings
-export async function GET() {
-  try {
-    const bookings = await prisma.booking.findMany();
-    return NextResponse.json(bookings, { status: 200 });
-  } catch (error) {
-    console.error("Error fetching bookings:", error);
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const status = searchParams.get("status");
 
-    // Assert the error type before accessing its message
-    const errorMessage =
-      error instanceof Error ? error.message : "Error fetching bookings";
+  const where = status && status !== "all" ? { status } : {};
 
-    return NextResponse.json({ error: errorMessage }, { status: 500 });
-  }
+  const bookings = await prisma.booking.findMany({
+    where,
+    orderBy: { createdAt: "desc" },
+  });
+
+  return NextResponse.json(bookings);
 }

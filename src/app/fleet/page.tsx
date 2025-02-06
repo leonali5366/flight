@@ -1,12 +1,15 @@
 import ContinentalRange from "../components/fleet/ContinentalRange";
 import GlobalReach from "../components/fleet/GlobalReach";
 import Header from "../components/fleet/Header";
+import Footer from "../components/Footer";
 import Form from "../components/home/Form";
+import Nav from "../components/Nav";
 // import MembershipForm from "../components/MembershipForm";
 
 export default function Fleet() {
   return (
     <div>
+      <Nav />
       <Header />
       <GlobalReach />
       <div className="bg-[#F6F6F6]">
@@ -45,6 +48,7 @@ export default function Fleet() {
           <MembershipForm />
         </div>
       </div> */}
+      <Footer />
     </div>
   );
 }

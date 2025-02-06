@@ -1,11 +1,14 @@
+import Footer from "./components/Footer";
 import Form from "./components/home/Form";
 import Header from "./components/home/Header";
 import Membership from "./components/home/Membership";
+import Nav from "./components/Nav";
 // import MembershipForm from "./components/MembershipForm";
 
 export default function Home() {
   return (
     <div>
+      <Nav />
       <Header />
       <div className="max-w-[1250px] mx-auto px-5 py-20 flex flex-col gap-5">
         <h1 className="text-xl tracking-widest opacity-70">PLANIFIER UN VOL</h1>
@@ -37,6 +40,7 @@ export default function Home() {
           <MembershipForm />
         </div>
       </div> */}
+      <Footer />
     </div>
   );
 }
