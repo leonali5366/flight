@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { menuSlide } from "./anime";
 import Curve from "./Curve";
 import Links from "./Links";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Globe } from "lucide-react";
 
 export default function Sidebar() {
   const navItems = [
@@ -19,7 +26,32 @@ export default function Sidebar() {
       href: "/experience",
     },
   ];
+  const [lang, setLang] = useState("");
 
+  useEffect(() => {
+    // Check if the code is running in the browser (i.e., window is defined)
+    if (typeof window !== "undefined") {
+      const existingLang = localStorage.getItem("lang");
+
+      if (existingLang) {
+        // If the lang is found in localStorage, set it to the state
+        setLang(existingLang);
+      } else {
+        // If no lang is found, set a default value in both localStorage and state
+        const defaultLang = "french"; // Example default language
+        localStorage.setItem("lang", defaultLang);
+        setLang(defaultLang);
+      }
+    }
+  }, []);
+  const handleLangEnglish = () => {
+    localStorage.setItem("lang", "english");
+    window.location.reload();
+  };
+  const handleLangFrench = () => {
+    localStorage.setItem("lang", "french");
+    window.location.reload();
+  };
   return (
     <motion.div
       variants={menuSlide}
@@ -38,6 +70,35 @@ export default function Sidebar() {
           {navItems.map((data, index) => (
             <Links key={index} data={{ ...data, index }} />
           ))}
+          <DropdownMenu>
+            <DropdownMenuTrigger className="mt-20 mx-auto">
+              <Globe />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem
+                onClick={handleLangEnglish}
+                disabled={lang === "english"}
+              >
+                <div className="flex flex-col items-start">
+                  <span className="text-sm font-semibold">United States</span>
+                  <span className="text-xs font-medium opacity-80">
+                    English
+                  </span>
+                </div>
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={handleLangFrench}
+                disabled={lang === "french"}
+              >
+                <div className="flex flex-col items-start">
+                  <span className="text-sm font-semibold">French</span>
+                  <span className="text-xs font-medium opacity-80">
+                    Français
+                  </span>
+                </div>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </motion.div>
