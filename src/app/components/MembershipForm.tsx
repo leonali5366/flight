@@ -145,7 +145,7 @@ export default function MembershipForm() {
         <input type="checkbox" name="" id="" />
         <span className="text-sm font-light tracking-wider">
           Je consens au traitement de mes données personnelles conformément à la
-          politique de confidentialité de VistaJet.
+          politique de confidentialité de OppongJet.
         </span>
       </label>
       <button className="w-fit px-6 py-2 rounded-full bg-red-700 hover:bg-red-800 transition-colors duration-300 ease-in-out text-xs text-white tracking-wider">

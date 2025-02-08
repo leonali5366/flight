@@ -620,7 +620,7 @@ export default function Form() {
               </div>
               <div className="flex flex-col gap-1 lg:mt-10 mt-5">
                 <label className="font-light tracking-wider">
-                  How did you hear about VistaJet?
+                  How did you hear about OppongJet?
                 </label>
                 <Select value={hearAboutUs} onValueChange={setHearAboutUs}>
                   <SelectTrigger className="font-light">

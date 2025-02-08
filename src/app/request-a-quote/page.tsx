@@ -33,13 +33,13 @@ export default function RequestAQuote() {
           </span>
           <p className="text-zinc-600 font-light tracking-wider leading-6 max-lg:text-sm">
             {lang === "french"
-              ? "Chaque vol est unique, nous travaillons donc avec diligence pour créer le vol parfait qui répond à la fois à vos exigences de voyage et à vos préférences personnelles à chaque fois que vous voyagez. Pour trouver la solution de vol optimale pour votre prochain voyage, veuillez fournir le plus d'informations possible ci-dessous, et nous vous proposerons une suggestion sur mesure accompagnée d'un devis."
-              : "Each flight is unique, so we work diligently to create the perfect flight that meets both your travel requirements and your personal preferences every time you travel. To find the optimal flight solution for your next trip, please provide as much information as possible below, and we will offer you a tailor-made suggestion accompanied by a quote."}
+              ? "Chaque vol est unique, c'est pourquoi nous mettons tout en œuvre pour concevoir une expérience sur mesure, parfaitement adaptée à vos exigences de voyage et à vos préférences personnelles. Afin de vous proposer la solution de vol idéale pour votre prochain déplacement, veuillez nous fournir un maximum d’informations ci-dessous. Nous vous enverrons une suggestion personnalisée accompagnée d’un devis."
+              : "Every flight is unique, which is why we work diligently to create the perfect journey tailored to both your travel requirements and personal preferences. To find the optimal flight solution for your next trip, please provide as much information as possible below, and we will present you with a customized proposal along with a quote."}
           </p>
           <p className="text-zinc-600 font-light tracking-wider leading-6">
             {lang === "french"
-              ? "Entrez les détails de votre vol ci-dessous et notre équipe vous contactera sous peu. Les prix des vols charters en jet privé sont soumis au taux du marché et commencent à partir de 11 000 USD."
-              : "Enter your flight details below and our team will contact you shortly. Private jet charter flight prices are subject to market rate and start from USD 11,000."}
+              ? "Entrez les détails de votre vol ci-dessous, et notre équipe vous contactera dans les plus brefs délais. Les tarifs des vols charters en jet privé sont soumis aux fluctuations du marché et débutent à partir de 11 000 USD."
+              : "Enter your flight details below, and our team will get in touch with you shortly. Private jet charter prices are subject to market rates and start from $11,000 USD."}
           </p>
           <Form />
           <p className="text-zinc-600 font-light tracking-wider leading-6 text-sm text-center">
@@ -66,7 +66,7 @@ export default function RequestAQuote() {
                 Flexible. Sans actifs. Adapté à vos besoins.
               </h1>
               <p className="text-sm font-light tracking-wider leading-6">
-                VistaJet se passionne pour l&apos;adaptation de chaque vol aux
+                OppongJet se passionne pour l&apos;adaptation de chaque vol aux
                 besoins spécifiques et aux préférences personnelles des membres.
                 Nos adhésions sont flexibles, sans investissement, et offrent un
                 accès à une flotte cohérente et de marque de plus de 300 avions

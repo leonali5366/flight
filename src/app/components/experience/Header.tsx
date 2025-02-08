@@ -53,7 +53,7 @@ export default function Header() {
           )}
 
           {/* <button className="px-4 py-2 rounded-full bg-red-700 transition-colors duration-300 ease-in-out hover:bg-red-800 w-fit uppercase text-white text-[.6rem] tracking-widest">
-            LES SERVICES À BORD EMBLÉMATIQUES DE VISTAJET
+            LES SERVICES À BORD EMBLÉMATIQUES DE OPPONGJET
           </button> */}
         </div>
       </div>

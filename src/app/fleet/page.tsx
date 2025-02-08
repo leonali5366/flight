@@ -58,7 +58,7 @@ export default function Fleet() {
             Flexible. Sans actifs. Adapté à vos besoins.
           </h1>
           <p className="text-sm font-light tracking-wider leading-6">
-            VistaJet se passionne pour l&apos;adaptation de chaque vol aux
+            OppongJet se passionne pour l&apos;adaptation de chaque vol aux
             besoins spécifiques et aux préférences personnelles des membres. Nos
             adhésions sont flexibles, sans investissement, et offrent un accès à
             une flotte cohérente et de marque de plus de 300 avions super-moyens

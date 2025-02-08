@@ -19,105 +19,105 @@ const service = [
     titleE: "EXPERT TEAM",
     image: "/images/cabin-hostess-dressing-the-cabin.jpg",
     desMain:
-      "En matière de service, nous considérons l'excellence comme la norme. Du personnel de cabine hautement qualifié à votre équipe personnelle d'experts en voyage, vous êtes entre les meilleures mains, dans les airs comme au sol.",
+      "Pour nous, l’excellence est la norme en matière de service. Avec un équipage de cabine hautement qualifié et une équipe dédiée d’experts en voyage, vous bénéficiez d’un accompagnement inégalé, aussi bien dans les airs qu’au sol.",
     desMainE:
-      "When it comes to service, we see excellence as the norm. From highly trained cabin crew to your personal team of travel experts, you are in the best hands, in the air and on the ground.",
+      " When it comes to service, we consider excellence the standard. From highly trained cabin crew to your dedicated team of travel experts, you are in the best hands, both in the air and on the ground.",
     trigger: "EN SAVOIR PLUS SUR L'ÉQUIPE",
     triggerE: "LEARN MORE ABOUT THE TEAM",
-    des1: "Une expérience inégalée en cabine vous attend. Chaque vol VistaJet compte deux pilotes dans le poste de pilotage et un hôte de cabine formé à la VistaJet Academy par le British Butler Institute, le Norland College et le Wine & Spirit Education Trust. Les pilotes ne volent que sur un seul type d'appareil, afin de garantir une familiarité maximale, et s'entraînent deux fois par an.",
+    des1: "Une expérience de vol inégalée vous attend. Chaque voyage avec Oppong private jet est assuré par deux pilotes dans le cockpit et un hôte de cabine formé à la Oppong private jet Academy en partenariat avec le British Butler Institute, le Norland College et le Wine & Spirit Education Trust. Pour une sécurité et une expertise maximales, nos pilotes se spécialisent sur un seul type d’appareil et suivent un entraînement intensif deux fois par an.",
     des1E:
-      "An unparalleled cabin experience awaits you. Each VistaJet flight has two pilots in the cockpit and one cabin host trained at the VistaJet Academy by the British Butler Institute, Norland College and the Wine & Spirit Education Trust. Pilots only fly on one type of aircraft, to ensure maximum familiarity, and train twice a year.",
-    des2: "Une équipe d'experts se tient personnellement à votre disposition 24 heures sur 24, 7 jours sur 7, tous les jours de l'année, pour organiser tous les aspects de la logistique du voyage, y compris les arrangements au sol. Formée aux délais de réponse courts, votre équipe est là pour vous fournir un service fiable et efficace chaque fois que vous souhaitez prendre l'avion.",
+      "An unmatched in-flight experience awaits you. Every Oppong private jet flight is operated by two pilots in the cockpit and a cabin host trained at the Oppong private jet Academy in collaboration with the British Butler Institute, Norland College, and the Wine & Spirit Education Trust. To ensure maximum familiarity and safety, our pilots fly only one type of aircraft and undergo intensive training twice a year.",
+    des2: "Une équipe d'experts est à votre disposition 24h/24, 7j/7, tout au long de l’année, pour gérer chaque détail logistique de votre voyage, y compris les arrangements au sol. Habituée aux délais de réponse courts, votre équipe dédiée vous garantit un service fiable et efficace à chaque vol.",
     des2E:
-      "A team of experts is personally at your disposal 24 hours on 24, 7 days on 7, every day of the year, to organize all aspects of the logistics of the trip, including ground arrangements. Trained in short response times, your team is there to provide you with reliable and efficient service whenever you want to fly.",
+      "A team of experts is available 24/7, every day of the year, to handle all logistical aspects of your journey, including ground arrangements. Trained for rapid response times, your dedicated team ensures a reliable and efficient service whenever you wish to fly.",
   },
   {
     title: "PRIVATE DINING",
     titleE: "PRIVATE DINING",
     image: "/images/asia-gastronomy.jpg",
     desMain:
-      "VistaJet sert des plats préparés par les chefs privés et les restaurants étoilés les plus recherchés, ce qui vous permet de savourer le temps passé ensemble à bord. Travaillant avec plus de 7 000 partenaires, nous vous proposons toutes les saveurs que vous souhaitez.",
+      "Oppong private jet propose des plats raffinés préparés par les chefs privés et les restaurants étoilés les plus prestigieux, vous offrant ainsi une expérience gastronomique d’exception à bord. Grâce à un réseau de plus de 7 000 partenaires, nous répondons à toutes vos envies culinaires.",
     desMainE:
-      "VistaJet serves dishes prepared by private chefs and the most sought-after starred restaurants, allowing you to savor the time spent together on board. Working with more than 7,000 partners, we offer you all the flavors you want.",
+      "Oppong private jet serves exquisite dishes crafted by the most sought-after private chefs and Michelin-starred restaurants, allowing you to savor every moment on board. With a network of over 7,000 partners, we bring you the flavors you desire.",
     trigger: "EN SAVOIR PLUS SUR LES REPAS PRIVÉS",
     triggerE: "LEARN MORE ABOUT PRIVATE MEALS",
-    des1: "Créée en partenariat avec certains des chefs et restaurants les plus renommés au monde, la sélection exclusive de restaurants privés de VistaJet est inégalée. Nos menus changent en fonction des saisons, pour vous offrir de nouvelles saveurs. Soucieux de votre bien-être, nous nous procurons les ingrédients et les plats les plus frais et de la plus haute qualité, quel que soit votre lieu de départ.",
+    des1: "Conçue en collaboration avec les chefs et restaurants les plus prestigieux au monde, la sélection exclusive de restaurants privés de Oppong private jet est sans égal. Nos menus évoluent au fil des saisons pour vous faire découvrir de nouvelles saveurs. Attachés à votre bien-être, nous sélectionnons les ingrédients les plus frais et de la plus haute qualité, où que soit votre point de départ.",
     des1E:
-      "Created in partnership with some of the world's most renowned chefs and restaurants, VistaJet's exclusive selection of private restaurants is unmatched. Our menus change according to the seasons, to offer you new flavors. Concerned about your well-being, we source the freshest and highest quality ingredients and dishes, no matter where you start.",
-    des2: "VistaJet a transformé la restauration privée dans les airs en explorant l'art et la science de la restauration et en créant des plats aussi savoureux en altitude qu'au sol. L'application VistaJet offre un choix presque illimité au bout de vos doigts, vous permettant de réserver vos repas en vol en toute simplicité.",
+      "Created in partnership with some of the world’s most renowned chefs and restaurants, Oppong private jet’s exclusive selection of private dining experiences is unmatched. Our menus change with the seasons to bring you new flavors. Committed to your well-being, we source the freshest and highest-quality ingredients, no matter where your journey begins.",
+    des2: " Oppong private jet a révolutionné la gastronomie privée en vol en alliant l’art et la science de la restauration, garantissant des plats aussi savoureux en altitude qu’au sol. Grâce à l’application Oppong private jet, profitez d’un choix quasi illimité et réservez vos repas en vol en toute simplicité.",
     des2E:
-      "VistaJet has transformed private dining in the air by exploring the art and science of dining and creating dishes that are as tasty at altitude as they are on the ground. The VistaJet app offers an almost unlimited choice at your fingertips, allowing you to book your meals in flight with ease.",
-    des3: "Notre équipe de restauration privée est là pour vous aider à créer le goût parfait pour toute occasion, afin que vous puissiez profiter de votre temps à bord avec vos invités.",
+      "Oppong private jet has transformed private dining in the sky by mastering the art and science of in-flight cuisine, ensuring dishes are just as flavorful at altitude as they are on the ground. With the Oppong private jet app, you have an almost unlimited selection at your fingertips, making in-flight meal reservations effortless.",
+    des3: "Notre équipe de restauration privée est à votre disposition pour créer des expériences culinaires sur mesure, adaptées à chaque occasion, afin que vous puissiez savourer pleinement votre temps à bord avec vos invités.",
     des3E:
-      "Our private catering team is here to help you create the perfect taste for any occasion, so you can enjoy your time onboard with your guests.",
+      "Our private dining team is here to help you craft the perfect culinary experience for any occasion, allowing you to fully enjoy your time on board with your gues",
   },
   {
-    title: "VISTAPET",
-    titleE: "VISTAPET",
+    title: "OPPONGPET",
+    titleE: "OPPONGPET",
     image: "/images/pets.jpeg",
     desMain:
-      "Le service pour les membres qui se soucient du bien-être de leurs compagnons à quatre pattes à bord. Ce programme sur mesure a été conçu en collaboration avec des vétérinaires expérimentés et des experts animaliers pour répondre aux besoins de nos clients voyageant avec des animaux.",
+      " Un service exclusif dédié aux membres soucieux du bien-être de leurs compagnons à quatre pattes en vol. Ce programme sur mesure, conçu en collaboration avec des vétérinaires et experts animaliers expérimentés, garantit une expérience de voyage optimale pour nos clients voyageant avec des animaux.",
     desMainE:
-      "The service for members who care about the well-being of their four-legged companions on board. This tailor-made program has been designed in collaboration with experienced veterinarians and animal experts to meet the needs of our clients traveling with animals.",
-    trigger: "PLUS D'INFORMATIONS SUR VISTAPET",
-    triggerE: "MORE INFORMATION ABOUT VISTAPET",
-    des1: "Nous veillons à ce que vos fidèles compagnons reçoivent le même niveau de soutien et d'attention que vous lorsque vous voyagez avec nous. Avec un membre sur quatre voyageant avec des animaux, le programme VistaPet offre des solutions aux différents besoins et défis liés aux voyages avec des animaux de compagnie.",
+      "A dedicated service for members who prioritize the well-being of their four-legged companions on board. This tailor-made program, developed in partnership with experienced veterinarians and animal experts, ensures a seamless and comfortable travel experience for clients flying with pets.",
+    trigger: "PLUS D'INFORMATIONS SUR OPPONGPET",
+    triggerE: "MORE INFORMATION ABOUT OPPONGPET",
+    des1: "Nous nous assurons que vos compagnons fidèles bénéficient du même niveau de soin et d'attention que vous lors de vos voyages avec nous. Avec un membre sur quatre voyageant avec un animal, le programme OppongPet propose des solutions adaptées pour répondre aux besoins et aux défis des déplacements avec des animaux de compagnie.",
     des1E:
-      "We ensure that your faithful companions receive the same level of support and attention as you do when traveling with us. With one in four members travelling with pets, the VistaPet program offers solutions to the different needs and challenges of traveling with pets.",
-    des2: "Le programme a été conçu en collaboration avec des vétérinaires expérimentés, des entraîneurs, des diététiciens et des toiletteurs, tandis que les hôtes de cabine de VistaJet sont formés aux premiers secours pour animaux afin de garantir la sécurité des passagers animaux pendant le voyage. Pour les animaux qui ont peur de l'avion, nous proposons des cours sur la peur de l'avion, en partenariat avec The Dog House, afin de les préparer à un vol détendu.",
+      "We ensure that your loyal companions receive the same level of care and attention as you when traveling with us. With one in four members flying with a pet, the OppongPet program provides tailored solutions to meet the needs and challenges of traveling with animals.",
+    des2: "Ce programme a été élaboré en collaboration avec des vétérinaires expérimentés, des entraîneurs, des diététiciens et des toiletteurs, afin d’offrir le meilleur confort aux animaux en vol. Les hôtes de cabine de Oppong private jet sont spécialement formés aux premiers secours pour animaux, garantissant leur sécurité tout au long du voyage. Pour les animaux anxieux en avion, nous proposons des cours anti-stress en partenariat avec The Dog House, afin de les préparer à un vol en toute sérénité.",
     des2E:
-      "The program has been designed in collaboration with experienced veterinarians, coaches, dietitians and groomers, while VistaJet cabin guests are trained in animal first aid to ensure the safety of animal passengers during the journey. For animals who are afraid of flying, we offer classes on fear of flying, in partnership with The Dog House, to prepare them for a relaxed flight.",
-    des3: "Notre portefeuille Private World de destinations et d'expériences partenaires offre un accès à certaines des meilleures propriétés accueillant les animaux de compagnie à travers le monde, promettant un service sans faille, du départ à la destination. Des tapis de couchage Labbvenn faits à la main aux kits de commodités comprenant des produits de toilettage et des en-cas, VistaJet est à portée de main pour assurer un service confortable à vos amis bien-aimés.",
+      "The program was developed in collaboration with experienced veterinarians, trainers, dietitians, and groomers to ensure the highest level of comfort for pets in flight. Oppong private jet’s cabin hosts are specially trained in pet first aid, ensuring their safety throughout the journey. For animals anxious about flying, we offer fear-of-flying courses in partnership with The Dog House to help them prepare for a relaxed and stress-free flight.",
+    des3: "Notre portefeuille Private World de destinations et d’expériences partenaires vous ouvre les portes des meilleures propriétés accueillant les animaux de compagnie à travers le monde, garantissant un service sans faille, du départ jusqu’à l’arrivée. Des tapis de couchage Labbvenn faits à la main aux kits de confort comprenant des produits de toilettage et des en-cas, Oppong private jet veille à offrir une expérience de voyage des plus agréables à vos compagnons bien-aimés.",
     des3E:
-      "Our Private World portfolio of partner destinations and experiences provides access to some of the best pet-friendly properties around the world, promising seamless service from departure to destination. From handmade Labbvenn sleeping mats to amenity kits including grooming products and snacks, VistaJet is on hand to ensure comfortable service to your beloved friends.",
+      "Our Private World portfolio of destinations and partner experiences grants access to some of the finest pet-friendly properties worldwide, ensuring a seamless journey from departure to destination. From handcrafted Labbvenn sleeping mats to amenity kits featuring grooming products and treats, Oppong private jet is dedicated to providing the utmost comfort for your beloved companions.",
   },
   {
     title: "ADVENTURES IN THE SKY",
     titleE: "ADVENTURES IN THE SKY",
     image: "/images/adventures-in-the-sky.jpg",
     desMain:
-      "VistaJet propose le programme de voyage le plus complet pour les enfants. Nos aventures sont adaptées à l'âge et aux centres d'intérêt de votre enfant, ce qui rend chaque voyage mémorable.",
+      "Oppong private jet offre le programme de voyage le plus complet pour les enfants. Chaque aventure est soigneusement adaptée à leur âge et à leurs centres d’intérêt, garantissant des moments uniques et inoubliables à chaque vol.",
     desMainE:
-      "VistaJet offers the most comprehensive travel program for children. Our adventures are tailored to the age and interests of your child, making every trip memorable.",
+      "Oppong private jet provides the most comprehensive travel program for children. Our adventures are tailored to your child's age and interests, making every journey a memorable experience.",
     trigger: "PLUS D'INFORMATIONS SUR ADVENTURES IN THE SKY",
     triggerE: "MORE ABOUT ADVENTURES IN THE SKY",
-    des1: "Voyager avec des enfants présente un besoin unique de divertissement, de commodité et de confort à bord. Le programme 'Adventures in the Sky' a été créé pour transformer un voyage ordinaire en une expérience magique que les enfants pourront chérir à jamais. Des aventures étonnantes pour réunir des amis et des familles de tous les coins du monde sur une île sablonneuse peu connue de l'océan Pacifique, ou sur une montagne époustouflante à la neige intacte, jusqu'à l'organisation d'un goûter de Chapelier fou volant.",
+    des1: " Voyager avec des enfants implique des besoins spécifiques en matière de divertissement, de confort et de commodité à bord. C'est pourquoi le programme Adventures in the Sky a été conçu pour transformer chaque voyage en une expérience magique et inoubliable. Des aventures extraordinaires, qu’il s’agisse de rassembler famille et amis sur une île secrète du Pacifique ou sur une montagne enneigée immaculée, jusqu’à organiser un goûter enchanté inspiré du Chapelier Fou en plein vol.",
     des1E:
       "Traveling with children presents a unique need for entertainment, convenience and comfort on board. The 'Adventures in the Sky' program was created to turn an ordinary trip into a magical experience that children will be able to cherish forever. Amazing adventures to reunite friends and families from all over the world on a little-known sandy island in the Pacific Ocean, or on a breathtaking mountain with untouched snow, until hosting a flying mad Hatter snack.",
-    des2: "Avec des costumiers, des animateurs qualifiés et des activités interactives telles que le tournage de votre propre film, les enfants auront du mal à s'ennuyer. Nous avons également créé des packs d'activités pour chaque tranche d'âge. Notre programme est conçu pour créer des voyages passionnants et mémorables pour les enfants et les familles.",
+    des2: "Avec des costumiers, des animateurs qualifiés et des activités interactives comme le tournage de leur propre film, les enfants n’auront pas une seconde pour s’ennuyer. Nous avons également conçu des packs d’activités adaptés à chaque tranche d’âge. Notre programme vise à transformer chaque voyage en une aventure passionnante et inoubliable pour les enfants et leurs familles.",
     des2E:
-      "With costume designers, skilled animators, and interactive activities such as shooting your own movie, kids will find it hard to get bored. We have also created activity packs for each age group. Our program is designed to create exciting and memorable trips for children and families alike.",
+      "With costume designers, skilled entertainers, and interactive activities such as filming their own movie, children will never run out of excitement. We have also created activity packs tailored to different age groups. Our program is designed to make every journey an exciting and memorable adventure for children and families alike.",
   },
   {
-    title: "BIBLIOTHÈQUE VISTAJET",
-    titleE: "VISTAJET LIBRARY",
-    image: "/images/vistajet-global-7500-library.jpg",
+    title: "BIBLIOTHÈQUE Oppong private jet",
+    titleE: "Oppong private jet LIBRARY",
+    image: "/images/Oppong private jet-global-7500-library.jpg",
     desMain:
-      "Comme un bon livre, l'aviation privée peut vous emmener partout où vous voulez aller. Pendant des années, l'aviation a été considérée comme une évasion, un moyen de tout laisser derrière soi. Aujourd'hui, l'intimité de la cabine offre un moment de détente et de réflexion.",
+      "À l’image d’un bon livre, l’aviation privée peut vous emmener où vous le souhaitez. Longtemps perçue comme un moyen d’évasion et de rupture avec le quotidien, l’aviation offre aujourd’hui, grâce à l’intimité de la cabine, un véritable moment de détente et de réflexion.",
     desMainE:
-      "As a good book, private aviation can take you anywhere you want to go. For years, aviation has been seen as an escape, a way to leave everything behind. Today, the privacy of the cabin offers a moment of relaxation and reflection.",
-    trigger: "PLUS D'INFORMATIONS SUR LA BIBLIOTHÈQUE VISTAJET",
-    triggerE: "MORE INFORMATION ABOUT THE VISTAJET LIBRARY",
-    des1: "Prenez du temps pour vous dans notre bibliothèque de bord, qui propose une sélection de livres en plusieurs genres et en plusieurs langues. Commandée à Heywood Hill, la principale librairie de Londres et libraire officiel de la famille royale, la bibliothèque propose des ouvrages pour tous les lecteurs, de l'humour au design, en passant par l'aventure et la poésie. VistaJet s'est associé aux spécialistes des langues étrangères Grant & Cutler pour inclure également des best-sellers internationaux en français, en espagnol et en mandarin, avec une gamme de titres étrangers classiques.",
+      "Like a great book, private aviation can take you anywhere you wish to go. For years, flying has been seen as an escape, a way to leave everything behind. Today, the privacy of the cabin offers a unique opportunity for relaxation and reflection.",
+    trigger: "PLUS D'INFORMATIONS SUR LA BIBLIOTHÈQUE Oppong private jet",
+    triggerE: "MORE INFORMATION ABOUT THE Oppong private jet LIBRARY",
+    des1: "Offrez-vous un moment de détente avec notre bibliothèque de bord, qui propose une sélection variée de livres dans plusieurs genres et langues. Conçue en partenariat avec Heywood Hill, la prestigieuse librairie londonienne et libraire officiel de la famille royale, elle offre des ouvrages pour tous les goûts, de l’humour au design, en passant par l’aventure et la poésie. Oppong private jet s’est également associé aux experts linguistiques de Grant & Cutler pour inclure des best-sellers internationaux en français, espagnol et mandarin, ainsi qu’une sélection de classiques étrangers.",
     des1E:
-      "Make time for yourself in our on-board library, which offers a selection of books in multiple genres and languages. Commissioned from Heywood Hill, London's leading bookstore and the official bookseller of the royal family, the library offers books for all readers, from humor to design, to adventure and poetry. VistaJet has partnered with foreign language specialists Grant & Cutler to also include international bestsellers in French, Spanish and Mandarin, along with a range of classic foreign titles.",
+      "ake a moment for yourself with our onboard library, featuring a curated selection of books across multiple genres and languages. Commissioned by Heywood Hill, London’s premier bookstore and the official bookseller to the Royal Family, the library offers something for every reader—from humor and design to adventure and poetry. Oppong private jet has also partnered with language specialists Grant & Cutler to include international bestsellers in French, Spanish, and Mandarin, along with a range of classic foreign titles.",
   },
   {
     title: "LE PROGRAMME DES VINS",
     titleE: "THE WINE PROGRAM",
     image: "/images/wine.jpeg",
     desMain:
-      "Les effets de l'altitude, de la pression dans la cabine et de la qualité de l'air font qu'il peut être difficile de choisir le bon vin à déguster à bord, car le palais est altéré. VistaJet a créé une carte des vins de marque, composée de grands vins du monde entier qui conservent leur équilibre en altitude.",
+      "Les effets de l'altitude, de la pression en cabine et de la qualité de l'air peuvent altérer le palais, rendant le choix du vin idéal plus complexe en vol. Oppong private jet a ainsi conçu une carte des vins exclusive, réunissant des crus d’exception du monde entier, sélectionnés pour préserver leur équilibre et leurs arômes à haute altitude.",
     desMainE:
-      "The effects of altitude, cabin pressure and air quality make it difficult to choose the right wine to enjoy on board, as the palate is altered. VistaJet has created a brand-name wine list, made up of great wines from around the world that maintain their balance at altitude.",
+      "The effects of altitude, cabin pressure, and air quality can alter the palate, making it challenging to choose the perfect wine to enjoy in-flight. Oppong private jet has created an exclusive wine list, featuring exceptional wines from around the world that maintain their balance and flavor at altitude",
     trigger: "EN SAVOIR PLUS SUR NOTRE PROGRAMME DE VINS",
     triggerE: "LEARN MORE ABOUT OUR WINE PROGRAM",
-    des1: "Le programme de vin de VistaJet s'adresse aux membres qui sont passionnés par le vin, qu'il s'agisse de le collectionner ou de le célébrer. Les recherches de VistaJet, visant à affiner les plaisirs de la dégustation du vin en altitude, comprennent la publication du Questionnaire sur le vin dans le ciel, un recueil de suggestions pour la dégustation, le service et le transport du vin lors de voyages autour du monde avec des œnophiles de premier plan. Pour améliorer encore la dégustation à bord, les hôtes de cabine VistaJet sont formés par le Wine & Spirit Education Trust au niveau 2.",
+    des1: "Le programme de vin de Oppong private jet est conçu pour les membres passionnés, qu'ils soient collectionneurs ou amateurs de grands crus. Afin d’optimiser l’expérience de dégustation en altitude, Oppong private jet a mené des recherches approfondies, incluant la publication du Questionnaire sur le vin dans le ciel, un guide complet sur la dégustation, le service et le transport du vin lors de voyages internationaux avec des œnophiles renommés. Pour garantir un service d’excellence, les hôtes de cabine Oppong private jet sont formés au niveau 2 du Wine & Spirit Education Trust.",
     des1E:
-      "VistaJet's wine program is for members who are passionate about wine, whether it's collecting it or celebrating it. VistaJet's research, aimed at refining the pleasures of wine tasting at altitude, includes the publication of the Wine in the Sky Questionnaire, a collection of suggestions for wine tasting, serving, and transporting wine on trips around the world with leading oenophiles. To further enhance onboard tasting, VistaJet cabin guests are trained by the Wine & Spirit Education Trust at Level 2.",
-    des2: "VistaJet Private World propose des expériences œnologiques sur mesure pour les membres au sol - des visites privées de vignobles à l'accès à des collectionneurs de vins fins et à des événements exclusifs. Le service de livraison de cave à cave de caisses de Grand Cru Olivier Bernstein en édition limitée, proposé exclusivement aux membres de VistaJet, est la première initiative de ce type.",
+      "Oppong private jet’s wine program caters to members who are passionate about fine wines, whether they collect or simply celebrate them. To enhance the enjoyment of wine at altitude, Oppong private jet has conducted extensive research, including the publication of the Wine in the Sky Questionnaire, a comprehensive guide on tasting, serving, and transporting wine during global travels with leading oenophiles. To further elevate the onboard experience, Oppong private jet’s cabin hosts are trained to Wine & Spirit Education Trust Level 2 certification.",
+    des2: "Oppong private jet Private World offre à ses membres des expériences œnologiques sur mesure, allant des visites privées de domaines viticoles à l’accès exclusif à des collectionneurs de grands crus et à des événements prestigieux. En exclusivité pour ses membres, Oppong private jet propose le tout premier service de livraison de cave à cave de caisses de Grand Cru Olivier Bernstein en édition limitée, une initiative unique dans le monde du vin.",
     des2E:
-      "VistaJet Private World offers bespoke wine experiences for members on the ground - from private vineyard tours to access to fine wine collectors and exclusive events. The limited-edition cellar-to-cellar delivery service from Grand Cru Olivier Bernstein, offered exclusively to VistaJet members, is the first such initiative.",
+      "Oppong private jet Private World provides members with bespoke wine experiences, from private vineyard tours to exclusive access to fine wine collectors and prestigious events. As a first-of-its-kind initiative, Oppong private jet exclusively offers its members a cellar-to-cellar delivery service for limited-edition Grand Cru Olivier Bernstein cases, redefining luxury wine access.",
   },
 ];
 
@@ -153,8 +153,8 @@ export default function Experience() {
           </span>
           <p className="text-sm font-light tracking-wider">
             {lang === "french"
-              ? "VistaJet change la façon dont les vols privés sont perçus grâce à la gamme la plus complète de programmes à bord. De l'exquis repas privé au seul programme de vol pour les enfants, nos membres peuvent savourer pleinement chaque moment passé à bord de nos avions. Découvrez ce que l'on ressent en volant avec VistaJet."
-              : "VistaJet is changing the way private flights are perceived through the most comprehensive range of onboard programs. From the exquisite private meal to the only flight program for children, our members can fully enjoy every moment they spend on board our aircraft. Find out how it feels to fly with VistaJet."}
+              ? "Oppong private jet redéfinit l’expérience des vols privés avec la gamme la plus complète de programmes à bord. Du raffinement de la gastronomie privée au seul programme de vol dédié aux enfants, nos membres profitent pleinement de chaque instant passé à bord de nos avions. Découvrez l’exception de voyager avec Oppong private jet."
+              : "Oppong private jet is transforming the way private flights are experienced with the most comprehensive range of onboard programs. From exquisite private dining to the only dedicated in-flight program for children, our members can fully savor every moment in the air. Experience the difference of flying with Oppong private jet."}
           </p>
           <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10">
             {service.map((data, i) => {
@@ -229,18 +229,18 @@ export default function Experience() {
               <div className="p-8 flex flex-col gap-5">
                 <h1 className="text-2xl font-light tracking-[.2em] text-zinc-600">
                   {lang === "french"
-                    ? "UN MONDE PRIVÉ POUR LES MEMBRES DE VISTAJET"
-                    : "A PRIVATE WORLD FOR VISTAJET MEMBERS"}
+                    ? "UN MONDE PRIVÉ POUR LES MEMBRES DE Oppong private jet"
+                    : "A PRIVATE WORLD FOR Oppong private jet MEMBERS"}
                 </h1>
                 <p className="font-light tracking-wider leading-6 text-sm">
                   {lang === "french"
-                    ? "Chez VistaJet, le monde est vraiment à découvrir. Le portefeuille VistaJet Private World offre une sélection des meilleurs partenaires et événements de luxe triés sur le volet pour la communauté de nos membres."
-                    : "At VistaJet, the world is truly waiting to be discovered. The VistaJet Private World portfolio offers a selection of the best handpicked luxury partners and events for the community of our members."}
+                    ? "Chez Oppong private jet, le monde s’offre véritablement à vous. Le portefeuille Oppong private jet Private World propose une sélection exclusive des meilleurs partenaires et événements de luxe, soigneusement choisis pour offrir des expériences uniques à notre communauté de membres."
+                    : "At Oppong private jet, the world is yours to explore. The Oppong private jet Private World portfolio offers a handpicked selection of the finest luxury partners and exclusive events, curated to provide exceptional experiences for our esteemed members."}
                 </p>
                 <p className="font-light tracking-wider leading-6 text-sm">
                   {lang === "french"
-                    ? "Private World propose à tous ses membres des itinéraires personnalisés et sélectionnés à la main pour vivre des expériences rares et authentiques dans des destinations spectaculaires du monde entier. Grâce à un réseau de plus de 600 partenaires internationaux et à l'accès à des suites et résidences exclusives, à des chalets de ski, à des yachts, à des îles privées et à des domaines exceptionnels, les membres bénéficient d'une hospitalité ultime, d'une intimité et d'un service personnalisé."
-                    : "Private World offers all its members personalized and hand-selected itineraries for rare and authentic experiences in spectacular destinations around the world. Through a network of more than 600 international partners and access to exclusive suites and residences, ski chalets, yachts, private islands and exceptional estates, members enjoy the ultimate in hospitality, privacy and personalized service. "}
+                    ? "Private World offre à ses membres des itinéraires sur mesure et soigneusement sélectionnés pour vivre des expériences rares et authentiques dans les destinations les plus spectaculaires du monde. Grâce à un réseau de plus de 600 partenaires internationaux, nos membres accèdent à des suites et résidences exclusives, des chalets de ski, des yachts, des îles privées et des domaines d’exception, bénéficiant ainsi d’une hospitalité ultime, d’une intimité absolue et d’un service entièrement personnalisé."
+                    : "Private World provides all its members with handpicked, tailor-made itineraries to experience rare and authentic moments in breathtaking destinations worldwide. With a network of over 600 international partners, members gain access to exclusive suites and residences, ski chalets, yachts, private islands, and exceptional estates—ensuring the ultimate in hospitality, privacy, and personalized service. "}
                 </p>
                 {/* <button className="px-4 py-2 rounded-full bg-red-700 transition-colors duration-300 ease-in-out hover:bg-red-800 w-fit uppercase text-white text-[.6rem] tracking-widest">
                   SE RENSEIGNER MAINTENANT
@@ -257,7 +257,7 @@ export default function Experience() {
                 Flexible. Sans actifs. Adapté à vos besoins.
               </h1>
               <p className="text-sm font-light tracking-wider leading-6">
-                VistaJet se passionne pour l&apos;adaptation de chaque vol aux
+                Oppong private jet se passionne pour l&apos;adaptation de chaque vol aux
                 besoins spécifiques et aux préférences personnelles des membres.
                 Nos adhésions sont flexibles, sans investissement, et offrent un
                 accès à une flotte cohérente et de marque de plus de 300 avions

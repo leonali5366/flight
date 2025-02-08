@@ -36,8 +36,8 @@ export default function Home() {
         </h1>
         <p className="mb-8 text-sm tracking-wider opacity-60">
           {lang === "french"
-            ? "Saisissez les détails de votre vol ci-dessous et notre équipe vous contactera dans les plus brefs délais. Les prix des vols charter en jet privé sont soumis au taux du marché et commencent à partir de 11 000 $."
-            : "Enter your flight details below and our team will contact you shortly. Private jet ch flight prices are subject to the market rate and start from $11,000 per hour."}
+            ? "Saisissez les détails de votre vol ci-dessous, et notre équipe vous contactera dans les plus brefs délais. Les tarifs des vols charters en jet privé varient selon le marché et commencent à partir de 11 000 $."
+            : "Enter your flight details below, and our team will get in touch with you as soon as possible. Private jet charter prices are subject to market rates and start from $11,000."}
         </p>
         <Form />
       </div>
@@ -51,7 +51,7 @@ export default function Home() {
             Flexible. Sans actifs. Adapté à vos besoins.
           </h1>
           <p className="text-sm font-light tracking-wider leading-6">
-            VistaJet se passionne pour l&apos;adaptation de chaque vol aux
+            Oppong Jet se passionne pour l&apos;adaptation de chaque vol aux
             besoins spécifiques et aux préférences personnelles des membres. Nos
             adhésions sont flexibles, sans investissement, et offrent un accès à
             une flotte cohérente et de marque de plus de 300 avions super-moyens

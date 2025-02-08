@@ -16,8 +16,8 @@ const carousel = [
     speed: "2.800nm | 5.185km",
     property: "14 places | 7 couchages",
     propertyE: "14 places | 7 beddings",
-    des: "Il combine les capacités d'un avion plus grand avec le confort et la flexibilité d'un jet d'affaires, avec une cabine identique en taille et en luxe à celle du Global 6000.",
-    desE: "It combines the capabilities of a larger aircraft with the comfort and flexibility of a business jet, with a cabin identical in size and luxury to that of the Global 6000.",
+    des: "Il associe la capacité d’un avion de plus grande envergure au confort et à la flexibilité d’un jet d’affaires, avec une cabine offrant le même espace et le même luxe que celui du Global 6000..",
+    desE: "It combines the capabilities of a larger aircraft with the comfort and flexibility of a business jet, featuring a cabin that matches the size and luxury of the Global 6000.",
   },
   {
     name: "Challenger 605",
@@ -26,7 +26,7 @@ const carousel = [
     property: "12 places | 5 couchages",
     propertyE: "12 places | 5 beddings",
     des: "Un impressionnant jet d'affaires intercontinental doté de la cabine la plus large de sa catégorie, offrant des performances exceptionnelles pour un budget équivalent à celui d'un jet sensiblement plus petit, sans compromis sur l'espace de la cabine.",
-    desE: "An impressive intercontinental business jet with the widest cabin in its class, delivering exceptional performance for a budget equivalent to that of a significantly smaller jet, without compromising on the space of the cabin.",
+    desE: "An impressive intercontinental business jet featuring the widest cabin in its class, delivering exceptional performance at a budget comparable to that of a significantly smaller jet, without compromising on cabin space.",
   },
   {
     name: "Challenger 350",
@@ -34,8 +34,8 @@ const carousel = [
     speed: "3.200nm | 5.900km",
     property: "8 places | 3 couchages",
     propertyE: "8 places | 3 beddings",
-    des: "L'ultime jet d'affaires super-moyen ayant accès à plus d'aéroports que tout autre concurrent de sa catégorie, avec une durée de vol pouvant atteindre sept heures et quinze minutes, et une section de cabine spacieuse similaire à celle d'un grand avion à plus long rayon d’action.",
-    desE: "The ultimate super-medium business jet with access to more airports than any other competitor in its class, with a flight time of up to seven hours and fifteen minutes, and a spacious cabin section similar to that of a larger aircraft with a longer’action radius.",
+    des: "Découvrez l'ultime jet d'affaires super-moyen, offrant un accès inégalé à plus d'aéroports que tout autre concurrent de sa catégorie. Avec une autonomie de vol pouvant atteindre sept heures et quinze minutes et une cabine spacieuse comparable à celle d'un grand jet à long rayon d'action, il allie performance et confort exceptionnel.",
+    desE: "Experience the ultimate super-mid business jet, providing access to more airports than any competitor in its class. With a flight duration of up to seven hours and fifteen minutes and a spacious cabin comparable to that of a large long-range jet, it combines exceptional performance with unparalleled comfort.",
   },
 ];
 
