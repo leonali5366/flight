@@ -27,7 +27,7 @@ export default function Header() {
         muted
         loop
       >
-        <source src="/video/header-home.mp4" type="video/mp4" />
+        <source src="/video/oppong-update.mp4" type="video/mp4" />
       </video>
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-[-1]"></div>
       <div className="flex flex-col gap-5 text-center mt-36">

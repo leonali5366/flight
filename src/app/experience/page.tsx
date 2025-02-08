@@ -17,7 +17,7 @@ const service = [
   {
     title: "ÉQUIPE D'EXPERTS",
     titleE: "EXPERT TEAM",
-    image: "/images/cabin-hostess-dressing-the-cabin.jpg",
+    image: "/images/oppong-service.webp",
     desMain:
       "Pour nous, l’excellence est la norme en matière de service. Avec un équipage de cabine hautement qualifié et une équipe dédiée d’experts en voyage, vous bénéficiez d’un accompagnement inégalé, aussi bien dans les airs qu’au sol.",
     desMainE:
@@ -34,7 +34,7 @@ const service = [
   {
     title: "PRIVATE DINING",
     titleE: "PRIVATE DINING",
-    image: "/images/asia-gastronomy.jpg",
+    image: "/images/oppong-meal.webp",
     desMain:
       "Oppong private jet propose des plats raffinés préparés par les chefs privés et les restaurants étoilés les plus prestigieux, vous offrant ainsi une expérience gastronomique d’exception à bord. Grâce à un réseau de plus de 7 000 partenaires, nous répondons à toutes vos envies culinaires.",
     desMainE:
@@ -54,7 +54,7 @@ const service = [
   {
     title: "OPPONGPET",
     titleE: "OPPONGPET",
-    image: "/images/pets.jpeg",
+    image: "/images/oppon-pet.webp",
     desMain:
       " Un service exclusif dédié aux membres soucieux du bien-être de leurs compagnons à quatre pattes en vol. Ce programme sur mesure, conçu en collaboration avec des vétérinaires et experts animaliers expérimentés, garantit une expérience de voyage optimale pour nos clients voyageant avec des animaux.",
     desMainE:
@@ -74,7 +74,7 @@ const service = [
   {
     title: "ADVENTURES IN THE SKY",
     titleE: "ADVENTURES IN THE SKY",
-    image: "/images/adventures-in-the-sky.jpg",
+    image: "/images/oppong-kids.webp",
     desMain:
       "Oppong private jet offre le programme de voyage le plus complet pour les enfants. Chaque aventure est soigneusement adaptée à leur âge et à leurs centres d’intérêt, garantissant des moments uniques et inoubliables à chaque vol.",
     desMainE:
@@ -91,7 +91,7 @@ const service = [
   {
     title: "BIBLIOTHÈQUE Oppong private jet",
     titleE: "Oppong private jet LIBRARY",
-    image: "/images/Oppong private jet-global-7500-library.jpg",
+    image: "/images/oppong-cabin-sec.webp",
     desMain:
       "À l’image d’un bon livre, l’aviation privée peut vous emmener où vous le souhaitez. Longtemps perçue comme un moyen d’évasion et de rupture avec le quotidien, l’aviation offre aujourd’hui, grâce à l’intimité de la cabine, un véritable moment de détente et de réflexion.",
     desMainE:
@@ -105,7 +105,7 @@ const service = [
   {
     title: "LE PROGRAMME DES VINS",
     titleE: "THE WINE PROGRAM",
-    image: "/images/wine.jpeg",
+    image: "/images/oppong-billon.webp",
     desMain:
       "Les effets de l'altitude, de la pression en cabine et de la qualité de l'air peuvent altérer le palais, rendant le choix du vin idéal plus complexe en vol. Oppong private jet a ainsi conçu une carte des vins exclusive, réunissant des crus d’exception du monde entier, sélectionnés pour préserver leur équilibre et leurs arômes à haute altitude.",
     desMainE:
@@ -219,7 +219,7 @@ export default function Experience() {
           <div className="flex lg:flex-row flex-col lg:justify-between mb-20">
             <div className="w-full lg:h-[500px] h-[300px] relative">
               <Image
-                src={"/images/peninsula-villa---aerial-2.jpeg"}
+                src={"/images/oppong-destination.webp"}
                 alt=""
                 layout="fill"
                 objectFit="cover"

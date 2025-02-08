@@ -27,7 +27,7 @@ export default function Header() {
         {/* Background Image with Zoom Animation */}
         <div
           className="absolute top-0 left-0 w-full h-full bg-cover bg-center animate-zoom"
-          style={{ backgroundImage: `url('/images/privateDining.jpeg')` }}
+          style={{ backgroundImage: `url('/images/oppong-wine.webp')` }}
         ></div>
 
         {/* Overlay */}

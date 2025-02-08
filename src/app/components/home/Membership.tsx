@@ -37,7 +37,7 @@ export default function Membership() {
           <div className="flex justify-between">
             <div className="w-full h-[500px] relative">
               <Image
-                src={"/images/membership.jpg"}
+                src={"/images/oppong-jet-wing.webp"}
                 alt=""
                 layout="fill"
                 objectFit="cover"
@@ -102,7 +102,7 @@ export default function Membership() {
           </div>
           <div className="w-full h-[474px] relative">
             <Image
-              src={"/images/privatejet.jpg"}
+              src={"/images/oppong-cabin.webp"}
               alt=""
               layout="fill"
               objectFit="cover"
@@ -113,7 +113,7 @@ export default function Membership() {
         <div className="flex justify-between">
           <div className="w-full h-[478px] relative">
             <Image
-              src={"/images/privateDining.jpeg"}
+              src={"/images/oppong-wine.webp"}
               alt=""
               layout="fill"
               objectFit="cover"
