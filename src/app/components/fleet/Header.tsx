@@ -38,8 +38,8 @@ export default function Header() {
     <div>
       <div
         ref={parallaxRef}
-        className="relative h-screen flex items-center bg-fixed justify-center text-white bg-cover bg-center px-5"
-        style={{ backgroundImage: `url('/images/fleet-header.jpeg')` }}
+        className="relative w-full h-screen flex items-center bg-fixed justify-center text-white bg-cover bg-center px-5"
+        style={{ backgroundImage: `url('/images/runway.webp')` }}
       >
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-[-1]"></div>
         <div className="flex flex-col items-center gap-10 text-center">

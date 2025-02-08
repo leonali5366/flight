@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Globe } from "lucide-react";
+import Image from "next/image";
 
 export default function Nav() {
   const [isScrolled, setIsScrolled] = useState(false); // Track if the user has scrolled
@@ -117,7 +118,7 @@ export default function Nav() {
           </li>
         </ul>
         <Link href={"/"}>
-          <div className="relative size-20 flex items-center justify-center cursor-pointer">
+          {/* <div className="relative size-20 flex items-center justify-center cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 926.4 410.43"
@@ -128,8 +129,9 @@ export default function Nav() {
                 fill={"#B00016"} // Change logo color based on scroll
                 d="M911.35 0 546.6 149.97c-37.18 15.23-66.04 49.22-78.26 92.07-30.63-19.3-67.11-23.55-100.22-11.33C334.65 241.69 0 410.43 0 410.43h20.01c10.45-3.72 215.31-89.59 304.2-108.54 70.65-13.99 139.7 22.13 182.55 67.46l9.74-4.78c5.84-93.49 59.85-177.95 134.21-217.61L926.4.18h-15.05V0Z"
               ></path>
-            </svg>
-          </div>
+            </svg></div> */}
+            <Image src={'/images/Logo.png'} alt="logo" width={180} height={180}/>
+          
         </Link>
         <div className="flex items-center gap-5">
           <span className="text-sm font-medium max-lg:hidden">
