@@ -34,7 +34,7 @@ export default function Membership() {
             bord d&apos;une flotte cohérente et moderne composée de jets privés
             super-midsize, long-courriers et très -long-courriers.
           </p> */}
-          <div className="flex justify-between">
+          <div className="flex lg:flex-row flex-col lg:justify-between">
             <div className="w-full h-[500px] relative">
               <Image
                 src={"/images/oppong-jet-wing.webp"}
@@ -79,7 +79,7 @@ export default function Membership() {
           </div>
         </div>
         {/* private jets */}
-        <div className="flex justify-between">
+        <div className="flex lg:flex-row flex-col-reverse lg:justify-between">
           <div className="w-full">
             <div className="p-8 h-full flex flex-col items-start gap-5 text-sm bg-[#F8F8F8]">
               <span className="text-xl tracking-[0.2em] font-light text-zinc-800">
@@ -110,7 +110,7 @@ export default function Membership() {
           </div>
         </div>
         {/* PrivateDining */}
-        <div className="flex justify-between">
+        <div className="flex lg:flex-row flex-col lg:justify-between">
           <div className="w-full h-[478px] relative">
             <Image
               src={"/images/oppong-wine.webp"}
