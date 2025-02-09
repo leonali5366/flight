@@ -11,39 +11,60 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 export default function Contact() {
-  const [fullName, setFullName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [phone, setPhone] = useState<string>("");
-  const [interest, setInterest] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    interest: "",
+    message: "",
+  });
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
-  const handleSubmit = async () => {
-    const data = {
-      fullName,
-      email,
-      phone,
-      interest,
-      message,
-    };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     try {
       setIsSubmitting(true);
-      const response = await fetch("/api/users/booking", {
+      const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(formData),
       });
-      if (response.ok) {
-        toast.success("Succefully sent request.");
+      if (!response.ok) {
+        toast.error("Failed to send email");
       }
+      toast.success("Email sent successfully!");
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        interest: "",
+        message: "",
+      });
     } catch (error) {
       console.error(error, "Something went wrong, try again later.");
       toast.error("Something went wrong, try again later.");
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSelectChange = (value: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      interest: value, // Update the "interest" field
+    }));
   };
   return (
     <div className="bg-black/85">
@@ -58,12 +79,12 @@ export default function Contact() {
           <div className="grid md:grid-cols-2 grid-cols-1 gap-10">
             {/* first name */}
             <label
-              htmlFor="firstName"
+              htmlFor="fullName"
               className="relative flex flex-col gap-1 group opacity-80"
             >
               <h1
                 className={`absolute top-0 left-0 ${
-                  fullName
+                  formData.fullName
                     ? "-translate-y-5 text-sm text-red-600 after:content-['*']"
                     : "group-focus-within:after:content-['*'] group-focus-within:-translate-y-5 group-focus-within:text-sm group-focus-within:text-red-600"
                 } transition-all duration-300 ease-in-out z-[-1]`}
@@ -72,14 +93,14 @@ export default function Contact() {
               </h1>
               <input
                 type="text"
-                name=""
-                id="firstName"
-                onChange={(e) => setFullName(e.target.value)}
+                name="fullName"
+                id="fullName"
+                onChange={handleChange}
                 className="w-full bg-transparent outline-none py-1"
               />
               <div
                 className={`w-full h-[1px] transition-all duration-300 ease-in-out ${
-                  fullName
+                  formData.fullName
                     ? "bg-red-600"
                     : "group-focus-within:bg-red-600 bg-white"
                 }`}
@@ -88,12 +109,12 @@ export default function Contact() {
 
             {/* last name */}
             <label
-              htmlFor="lastName"
+              htmlFor="email"
               className="relative flex flex-col gap-1 group opacity-80"
             >
               <h1
                 className={`absolute top-0 left-0 ${
-                  email
+                  formData.email
                     ? "-translate-y-5 text-sm text-red-600 after:content-['*']"
                     : "group-focus-within:after:content-['*'] group-focus-within:-translate-y-5 group-focus-within:text-sm group-focus-within:text-red-600"
                 } transition-all duration-300 ease-in-out z-[-1]`}
@@ -101,15 +122,15 @@ export default function Contact() {
                 Email
               </h1>
               <input
-                type="text"
-                name=""
-                id="lastName"
-                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                name="email"
+                id="email"
+                onChange={handleChange}
                 className="w-full bg-transparent outline-none py-1"
               />
               <div
                 className={`w-full h-[1px] transition-all duration-300 ease-in-out ${
-                  email
+                  formData.email
                     ? "bg-red-600"
                     : "group-focus-within:bg-red-600 bg-white"
                 }`}
@@ -117,12 +138,12 @@ export default function Contact() {
             </label>
             {/* Phone */}
             <label
-              htmlFor="lastName"
+              htmlFor="phone"
               className="relative flex flex-col gap-1 group opacity-80"
             >
               <h1
                 className={`absolute top-0 left-0 ${
-                  phone
+                  formData.phone
                     ? "-translate-y-5 text-sm text-red-600 after:content-['*']"
                     : "group-focus-within:after:content-['*'] group-focus-within:-translate-y-5 group-focus-within:text-sm group-focus-within:text-red-600"
                 } transition-all duration-300 ease-in-out z-[-1]`}
@@ -130,15 +151,15 @@ export default function Contact() {
                 Phone
               </h1>
               <input
-                type="text"
-                name=""
-                id="lastName"
-                onChange={(e) => setPhone(e.target.value)}
+                type="tel"
+                name="phone"
+                id="phone"
+                onChange={handleChange}
                 className="w-full bg-transparent outline-none py-1"
               />
               <div
                 className={`w-full h-[1px] transition-all duration-300 ease-in-out ${
-                  phone
+                  formData.phone
                     ? "bg-red-600"
                     : "group-focus-within:bg-red-600 bg-white"
                 }`}
@@ -148,17 +169,20 @@ export default function Contact() {
             <label className="relative flex flex-col group opacity-80">
               <h1
                 className={`absolute top-0 left-0 ${
-                  interest
+                  formData.interest
                     ? "-translate-y-5 text-sm text-red-600 after:content-['*']"
                     : "group-focus-within:after:content-['*'] group-focus-within:-translate-y-5 group-focus-within:text-sm group-focus-within:text-red-600"
                 } transition-all duration-300 ease-in-out z-[-1]`}
               >
                 interest
               </h1>
-              <Select value={interest} onValueChange={setInterest}>
+              <Select
+                value={formData.interest}
+                onValueChange={handleSelectChange}
+              >
                 <SelectTrigger
                   className={`border-t-0 border-l-0 border-r-0 focus:ring-0 ${
-                    interest
+                    formData.interest
                       ? "border-b-red-600"
                       : "group-focus-within:border-b-red-600"
                   } border-b rounded-none transition-all duration-300 ease-in-out`}
@@ -192,12 +216,12 @@ export default function Contact() {
             </label>
             {/* message */}
             <label
-              htmlFor="lastName"
+              htmlFor="message"
               className="relative flex flex-col gap-1 group opacity-80 md:col-span-2"
             >
               <h1
                 className={`absolute top-0 left-0 ${
-                  message
+                  formData.message
                     ? "-translate-y-5 text-sm text-red-600 after:content-['*']"
                     : "group-focus-within:after:content-['*'] group-focus-within:-translate-y-5 group-focus-within:text-sm group-focus-within:text-red-600"
                 } transition-all duration-300 ease-in-out z-[-1]`}
@@ -205,14 +229,14 @@ export default function Contact() {
                 Message
               </h1>
               <textarea
-                name=""
+                name="message"
                 id="lastName"
-                onChange={(e) => setMessage(e.target.value)}
+                onChange={handleChange}
                 className="w-full bg-transparent outline-none min-h-[200px]"
               />
               <div
                 className={`w-full h-[1px]  transition-all duration-300 ease-in-out ${
-                  message
+                  formData.message
                     ? "bg-red-600"
                     : "group-focus-within:bg-red-600 bg-white"
                 }`}
@@ -223,7 +247,12 @@ export default function Contact() {
             type="submit"
             variant={"destructive"}
             className="w-fit"
-            disabled={!fullName || !email || !phone || !interest}
+            disabled={
+              !formData.fullName ||
+              !formData.email ||
+              !formData.phone ||
+              !formData.interest
+            }
           >
             {isSubmitting ? (
               <>
