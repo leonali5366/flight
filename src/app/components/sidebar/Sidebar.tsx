@@ -25,6 +25,10 @@ export default function Sidebar() {
       title: "Expérience",
       href: "/experience",
     },
+    {
+      title: "Empty Legs",
+      href: "/empty-legs",
+    },
   ];
   const [lang, setLang] = useState("");
 

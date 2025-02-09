@@ -209,8 +209,6 @@ export default function Form() {
         body: JSON.stringify(data),
       });
 
-      console.log(data);
-
       const result: BookingResponse = await response.json();
 
       if (response.ok) {

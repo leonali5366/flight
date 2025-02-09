@@ -47,10 +47,10 @@ export default function RequestAQuote() {
               ? "Besoin d'aide? Contactez-nous sur"
               : "Need help? Contact us on"}{" "}
             <a
-              href="tel:+32 04 71 29 03 80"
+              href="tel:+320471290380"
               className="underline hover:text-red-800"
             >
-              +32 04 71 29 03 80
+              +320471290380
             </a>
           </p>
         </div>

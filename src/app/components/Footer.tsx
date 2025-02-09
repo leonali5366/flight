@@ -28,13 +28,18 @@ export default function Footer() {
       <div className="flex xl:flex-row flex-col items-baseline justify-between max-xl:gap-10 mt-5">
         <div className="w-full flex items-center place-content-center gap-5">
           <Link href={"/fleet"}>
-            <button className="tracking-widest font-light hover:underline uppercase">
+            <button className="tracking-widest hover:underline uppercase">
               {lang === "french" ? "La flotte" : "Fleet"}
             </button>
           </Link>
           <Link href={"/experience"}>
-            <button className="tracking-widest font-light hover:underline uppercase">
+            <button className="tracking-widest hover:underline uppercase">
               {lang === "french" ? "Expérience" : "Experience"}
+            </button>
+          </Link>
+          <Link href={"/empty-legs"}>
+            <button className="tracking-widest hover:underline uppercase">
+              Empty Legs
             </button>
           </Link>
         </div>

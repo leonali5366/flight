@@ -116,9 +116,13 @@ export default function Nav() {
               {lang === "french" ? "Expérience" : "Experience"}
             </Link>
           </li>
+          <li className="uppercase max-lg:hidden">
+            <Link href={"/empty-legs"}>Empty legs</Link>
+          </li>
         </ul>
-        <Link href={"/"}>
-          {/* <div className="relative size-20 flex items-center justify-center cursor-pointer">
+        <abbr title="Home">
+          <Link href={"/"}>
+            {/* <div className="relative size-20 flex items-center justify-center cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 926.4 410.43"
@@ -130,9 +134,14 @@ export default function Nav() {
                 d="M911.35 0 546.6 149.97c-37.18 15.23-66.04 49.22-78.26 92.07-30.63-19.3-67.11-23.55-100.22-11.33C334.65 241.69 0 410.43 0 410.43h20.01c10.45-3.72 215.31-89.59 304.2-108.54 70.65-13.99 139.7 22.13 182.55 67.46l9.74-4.78c5.84-93.49 59.85-177.95 134.21-217.61L926.4.18h-15.05V0Z"
               ></path>
             </svg></div> */}
-            <Image src={'/images/Logo.png'} alt="logo" width={180} height={180}/>
-          
-        </Link>
+            <Image
+              src={"/images/Logo.png"}
+              alt="logo"
+              width={180}
+              height={180}
+            />
+          </Link>
+        </abbr>
         <div className="flex items-center gap-5">
           <span className="text-sm font-medium max-lg:hidden">
             {lang === "french" ? "Appelez-nous" : "Call Us:"}{" "}
@@ -148,45 +157,51 @@ export default function Nav() {
             </a>
           </span>
           <div className="max-xl:hidden">
-            <DropdownMenu>
-              <DropdownMenuTrigger>
-                <Globe />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem
-                  onClick={handleLangEnglish}
-                  disabled={lang === "english"}
-                >
-                  <div className="flex flex-col items-start">
-                    <span className="text-sm font-semibold">United States</span>
-                    <span className="text-xs font-medium opacity-80">
-                      English
-                    </span>
-                  </div>
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  onClick={handleLangFrench}
-                  disabled={lang === "french"}
-                >
-                  <div className="flex flex-col items-start">
-                    <span className="text-sm font-semibold">French</span>
-                    <span className="text-xs font-medium opacity-80">
-                      Français
-                    </span>
-                  </div>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <abbr title="Language">
+              <DropdownMenu>
+                <DropdownMenuTrigger>
+                  <Globe />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuItem
+                    onClick={handleLangEnglish}
+                    disabled={lang === "english"}
+                  >
+                    <div className="flex flex-col items-start">
+                      <span className="text-sm font-semibold">
+                        United States
+                      </span>
+                      <span className="text-xs font-medium opacity-80">
+                        English
+                      </span>
+                    </div>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    onClick={handleLangFrench}
+                    disabled={lang === "french"}
+                  >
+                    <div className="flex flex-col items-start">
+                      <span className="text-sm font-semibold">French</span>
+                      <span className="text-xs font-medium opacity-80">
+                        Français
+                      </span>
+                    </div>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </abbr>
           </div>
-          <Link href={"/request-a-quote"}>
-            <button
-              className={`py-2 px-5
+          <abbr title="Request a quote">
+            <Link href={"/request-a-quote"}>
+              <button
+                className={`py-2 px-5
               bg-red-700 hover:bg-red-800 text-white
-              transition-colors duration-300 ease-in-out rounded-full text-xs tracking-widest uppercase`}
-            >
-              {lang === "french" ? "Demande de devis" : "Request a quote"}
-            </button>
-          </Link>
+              transition-colors duration-300 ease-in-out rounded-full text-xs max-sm:text-[.6rem] tracking-widest uppercase text-nowrap`}
+              >
+                {lang === "french" ? "Demande de devis" : "Request a quote"}
+              </button>
+            </Link>
+          </abbr>
         </div>
       </div>
     </nav>
