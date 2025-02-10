@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Globe } from "lucide-react";
 import Sidebar from "../components/sidebar/Sidebar";
+import Image from "next/image";
 
 export default function Nav() {
   const [isScrolled, setIsScrolled] = useState(false); // Track if the user has scrolled
@@ -116,32 +117,27 @@ export default function Nav() {
             </Link>
           </li>
         </ul>
-        <Link href={"/"}>
-          <div className="relative size-20 flex items-center justify-center cursor-pointer">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 926.4 410.43"
-              aria-labelledby="logoTitle"
-            >
-              <title id="logoTitle">OppongJet winglet</title>
-              <path
-                fill={"#B00016"} // Change logo color based on scroll
-                d="M911.35 0 546.6 149.97c-37.18 15.23-66.04 49.22-78.26 92.07-30.63-19.3-67.11-23.55-100.22-11.33C334.65 241.69 0 410.43 0 410.43h20.01c10.45-3.72 215.31-89.59 304.2-108.54 70.65-13.99 139.7 22.13 182.55 67.46l9.74-4.78c5.84-93.49 59.85-177.95 134.21-217.61L926.4.18h-15.05V0Z"
-              ></path>
-            </svg>
-          </div>
-        </Link>
+        <abbr title="Home">
+          <Link href={"/"}>
+            <Image
+              src={"/images/Logo.png"}
+              alt="logo"
+              width={180}
+              height={180}
+            />
+          </Link>
+        </abbr>
         <div className="flex items-center gap-5">
           <span className="text-sm font-medium max-lg:hidden text-black">
             {lang === "french" ? "Appelez-nous" : "Call Us:"}{" "}
             <a
-              href={`tel:${
-                lang === "french" ? "+32 04 71 29 03 80" : "+35 19 17 36 52 90"
-              }`}
+              href={`https://api.whatsapp.com/send/?phone=351917365290&text&type=phone_number&app_absent=0`}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`hover:text-red-500 transition-colors duration-300 ease-in-out underline
               }`}
             >
-              {lang === "french" ? "+32 04 71 29 03 80" : "+35 19 17 36 52 90"}
+              +351 917 365 290
             </a>
           </span>
           <div className="max-xl:hidden">
@@ -175,15 +171,6 @@ export default function Nav() {
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
-          <Link href={"/request-a-quote"}>
-            <button
-              className={`py-2 px-5
-              bg-red-700 hover:bg-red-800 text-white
-              transition-colors duration-300 ease-in-out rounded-full text-xs tracking-widest uppercase`}
-            >
-              {lang === "french" ? "Demande de devis" : "Request a quote"}
-            </button>
-          </Link>
         </div>
       </div>
     </nav>

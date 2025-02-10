@@ -11,7 +11,6 @@ import Link from "next/link";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
-// import MembershipForm from "../components/MembershipForm";
 
 const service = [
   {
@@ -242,31 +241,9 @@ export default function Experience() {
                     ? "Private World offre à ses membres des itinéraires sur mesure et soigneusement sélectionnés pour vivre des expériences rares et authentiques dans les destinations les plus spectaculaires du monde. Grâce à un réseau de plus de 600 partenaires internationaux, nos membres accèdent à des suites et résidences exclusives, des chalets de ski, des yachts, des îles privées et des domaines d’exception, bénéficiant ainsi d’une hospitalité ultime, d’une intimité absolue et d’un service entièrement personnalisé."
                     : "Private World provides all its members with handpicked, tailor-made itineraries to experience rare and authentic moments in breathtaking destinations worldwide. With a network of over 600 international partners, members gain access to exclusive suites and residences, ski chalets, yachts, private islands, and exceptional estates—ensuring the ultimate in hospitality, privacy, and personalized service. "}
                 </p>
-                {/* <button className="px-4 py-2 rounded-full bg-red-700 transition-colors duration-300 ease-in-out hover:bg-red-800 w-fit uppercase text-white text-[.6rem] tracking-widest">
-                  SE RENSEIGNER MAINTENANT
-                </button> */}
               </div>
             </div>
           </div>
-          {/* <div className="bg-white mt-8">
-            <div className="max-w-[1250px] mx-auto px-5 flex flex-col gap-5 pt-10">
-              <span className="tracking-[.3rem] text-xl font-light">
-                DEMANDE D&apos;ADHÉSION
-              </span>
-              <h1 className="text-sm font-light tracking-wider">
-                Flexible. Sans actifs. Adapté à vos besoins.
-              </h1>
-              <p className="text-sm font-light tracking-wider leading-6">
-                Oppong private jet se passionne pour l&apos;adaptation de chaque vol aux
-                besoins spécifiques et aux préférences personnelles des membres.
-                Nos adhésions sont flexibles, sans investissement, et offrent un
-                accès à une flotte cohérente et de marque de plus de 300 avions
-                super-moyens et longs courriers, avec les plus hauts niveaux de
-                service à bord de l&apos;aviation privée.
-              </p>
-              <MembershipForm />
-            </div>
-          </div> */}
         </div>
       </div>
       <Footer />

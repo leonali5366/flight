@@ -61,7 +61,11 @@ export default function Footer() {
           </div>
           <div className="flex flex-col items-center gap-2">
             <span className="lg:text-xl font-medium">Contact</span>
-            <a href="tel:+351917365290">
+            <a
+              href={`https://api.whatsapp.com/send/?phone=351917365290&text&type=phone_number&app_absent=0`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaWhatsappSquare size={28} />
             </a>
           </div>

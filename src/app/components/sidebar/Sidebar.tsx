@@ -14,20 +14,29 @@ import { Globe } from "lucide-react";
 export default function Sidebar() {
   const navItems = [
     {
-      title: "Home",
+      title: "Accueil",
+      titleE: "Home",
       href: "/",
     },
     {
       title: "La flotte",
+      titleE: "Fleet",
       href: "/fleet",
     },
     {
       title: "Expérience",
+      titleE: "Experience",
       href: "/experience",
     },
     {
-      title: "Empty Legs",
+      title: "Vols à vide",
+      titleE: "Empty Legs",
       href: "/empty-legs",
+    },
+    {
+      title: "Demande de devis",
+      titleE: "Request a quote",
+      href: "/request-a-quote",
     },
   ];
   const [lang, setLang] = useState("");

@@ -120,20 +120,9 @@ export default function Nav() {
             <Link href={"/empty-legs"}>Empty legs</Link>
           </li>
         </ul>
+        {/* logo */}
         <abbr title="Home">
           <Link href={"/"}>
-            {/* <div className="relative size-20 flex items-center justify-center cursor-pointer">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 926.4 410.43"
-              aria-labelledby="logoTitle"
-            >
-              <title id="logoTitle">OppongJet winglet</title>
-              <path
-                fill={"#B00016"} // Change logo color based on scroll
-                d="M911.35 0 546.6 149.97c-37.18 15.23-66.04 49.22-78.26 92.07-30.63-19.3-67.11-23.55-100.22-11.33C334.65 241.69 0 410.43 0 410.43h20.01c10.45-3.72 215.31-89.59 304.2-108.54 70.65-13.99 139.7 22.13 182.55 67.46l9.74-4.78c5.84-93.49 59.85-177.95 134.21-217.61L926.4.18h-15.05V0Z"
-              ></path>
-            </svg></div> */}
             <Image
               src={"/images/Logo.png"}
               alt="logo"
@@ -142,20 +131,22 @@ export default function Nav() {
             />
           </Link>
         </abbr>
+        {/* phone number */}
         <div className="flex items-center gap-5">
           <span className="text-sm font-medium max-lg:hidden">
             {lang === "french" ? "Appelez-nous" : "Call Us:"}{" "}
             <a
-              href={`tel:${
-                lang === "french" ? "+32 04 71 29 03 80" : "+35 19 17 36 52 90"
-              }`}
+              href={`https://api.whatsapp.com/send/?phone=351917365290&text&type=phone_number&app_absent=0`}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`hover:text-red-500 transition-colors duration-300 ease-in-out underline ${
                 isScrolled ? "text-black" : "text-white"
               }`}
             >
-              {lang === "french" ? "+32 04 71 29 03 80" : "+35 19 17 36 52 90"}
+              +351 917 365 290
             </a>
           </span>
+          {/* language switch */}
           <div className="max-xl:hidden">
             <abbr title="Language">
               <DropdownMenu>
@@ -191,6 +182,7 @@ export default function Nav() {
               </DropdownMenu>
             </abbr>
           </div>
+          {/* route button request a quote */}
           <abbr title="Request a quote">
             <Link href={"/request-a-quote"}>
               <button

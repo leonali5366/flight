@@ -50,11 +50,6 @@ export default function Header() {
             SIMPLY PAY FOR THE HOURS YOU NEED.
           </p>
         )}
-        <div className="flex items-center justify-center gap-5">
-          <button className="w-36 rounded-full border py-2 text-xs font-medium opacity-90 uppercase">
-            {lang === "french" ? "PLANIFIER UN VOL" : "Plan a flight"}
-          </button>
-        </div>
       </div>
     </div>
   );
