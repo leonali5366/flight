@@ -95,6 +95,7 @@ export default function Contact() {
                 type="text"
                 name="fullName"
                 id="fullName"
+                value={formData.fullName}
                 onChange={handleChange}
                 className="w-full bg-transparent outline-none py-1"
               />
@@ -125,6 +126,7 @@ export default function Contact() {
                 type="email"
                 name="email"
                 id="email"
+                value={formData.email}
                 onChange={handleChange}
                 className="w-full bg-transparent outline-none py-1"
               />
@@ -154,6 +156,7 @@ export default function Contact() {
                 type="tel"
                 name="phone"
                 id="phone"
+                value={formData.phone}
                 onChange={handleChange}
                 className="w-full bg-transparent outline-none py-1"
               />
@@ -231,6 +234,7 @@ export default function Contact() {
               <textarea
                 name="message"
                 id="lastName"
+                value={formData.message}
                 onChange={handleChange}
                 className="w-full bg-transparent outline-none min-h-[200px]"
               />
@@ -251,16 +255,17 @@ export default function Contact() {
               !formData.fullName ||
               !formData.email ||
               !formData.phone ||
-              !formData.interest
+              !formData.interest ||
+              isSubmitting
             }
           >
             {isSubmitting ? (
               <>
                 <Loader className="w-5 h-5 animate-spin" />
-                Submitting...
+                Sending...
               </>
             ) : (
-              "Submit"
+              "Send"
             )}
           </Button>
         </form>

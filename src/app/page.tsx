@@ -37,7 +37,7 @@ export default function Home() {
         <p className="mb-8 text-sm tracking-wider opacity-60">
           {lang === "french"
             ? "Saisissez les détails de votre vol ci-dessous, et notre équipe vous contactera dans les plus brefs délais. Les tarifs des vols charters en jet privé varient selon le marché et commencent à partir de 11 000 $."
-            : "Enter your flight details below, and our team will get in touch with you as soon as possible. Private jet charter prices are subject to market rates and start from $11,000."}
+            : "Enter your flight details below, and our team will get in touch with you as soon as possible. Private jet charter prices are subject to market rates and start from €5,000 euros."}
         </p>
         <Form />
       </div>
