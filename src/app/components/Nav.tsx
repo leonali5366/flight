@@ -117,7 +117,9 @@ export default function Nav() {
             </Link>
           </li>
           <li className="uppercase max-lg:hidden">
-            <Link href={"/empty-legs"}>Empty legs</Link>
+            <Link href={"/empty-legs"}>
+              {lang === "french" ? "Vols à vide" : "Empty legs"}
+            </Link>
           </li>
         </ul>
         {/* logo */}

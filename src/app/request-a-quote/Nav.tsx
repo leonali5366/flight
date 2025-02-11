@@ -116,6 +116,11 @@ export default function Nav() {
               {lang === "french" ? "Expérience" : "Experience"}
             </Link>
           </li>
+          <li className="uppercase max-lg:hidden text-black">
+            <Link href={"/empty-legs"}>
+              {lang === "french" ? "Vols à vide" : "Empty legs"}
+            </Link>
+          </li>
         </ul>
         <abbr title="Home">
           <Link href={"/"}>
