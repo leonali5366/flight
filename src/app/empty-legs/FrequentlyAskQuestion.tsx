@@ -42,8 +42,8 @@ export default function FrequentlyAskQuestion() {
             </AccordionTrigger>
             <AccordionContent>
               {lang === "french"
-                ? "Non, nous disposons de nombreuses opportunités Off-Market, en plus des avions figurant à notre inventaire. Contactez-nous directement pour tout appareil susceptible de vous intéresser. Nos équipes commerciales : (+32 04 71 29 03 80)."
-                : "Given that the relevant aircraft is available, it can be ready for take-off within about two hours. Contact our charter teams (+32 04 71 29 03 80) for any inquiries."}
+                ? "Non, nous disposons de nombreuses opportunités Off-Market, en plus des avions figurant à notre inventaire. Contactez-nous directement pour tout appareil susceptible de vous intéresser. Nos équipes commerciales : (+351 917 365 290)."
+                : "Given that the relevant aircraft is available, it can be ready for take-off within about two hours. Contact our charter teams (+351 917 365 290) for any inquiries."}
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
@@ -73,8 +73,8 @@ export default function FrequentlyAskQuestion() {
             </AccordionTrigger>
             <AccordionContent>
               {lang === "french"
-                ? "Non, nous disposons de nombreuses opportunités Off-Market, en plus des avions figurant à notre inventaire. Contactez-nous directement pour tout appareil susceptible de vous intéresser. Nos équipes commerciales : (+32 04 71 29 03 80)."
-                : "No, we have multiple off-market opportunities in addition to the aircraft displayed in our inventory. Contact us directly for any aircraft that you may be interested in. Our trading teams: (+32 04 71 29 03 80)."}
+                ? "Non, nous disposons de nombreuses opportunités Off-Market, en plus des avions figurant à notre inventaire. Contactez-nous directement pour tout appareil susceptible de vous intéresser. Nos équipes commerciales : (+351 917 365 290)."
+                : "No, we have multiple off-market opportunities in addition to the aircraft displayed in our inventory. Contact us directly for any aircraft that you may be interested in. Our trading teams: (+351 917 365 290)."}
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-4">
