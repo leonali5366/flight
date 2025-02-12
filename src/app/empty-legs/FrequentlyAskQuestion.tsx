@@ -60,16 +60,16 @@ export default function FrequentlyAskQuestion() {
               </p>
               <p>
                 {lang === "french"
-                  ? "Les mesures de sécurité générales pour tous les avions SPARFELL comprennent une évaluation complète des risques pour chaque vol ainsi qu’un nettoyage complet et une désinfection intégrale après chaque vol. En outre, les membres d’équipage ne se présentent au travail que s’ils sont 100 % en bonne santé. Afin de fournir les meilleures normes de sécurité possibles, tous les membres du personnel navigant ont suivi une formation approfondie sur la gestion des passagers à bord et l’ensemble des tâches effectuées à l’intérieur et aux abords de l’avion."
-                  : "The general safety measures for all SPARFELL aircraft include a complete risk assessment for every flight and full cleaning and disinfection after each flight. In addition, crew members report for duty only if they are 100% healthy. All flight crew members have received an in-depth briefing regarding the handling of passengers on board and all the tasks in and around the aircraft to provide the best possible safety standards."}
+                  ? "Les mesures de sécurité générales pour tous les avions Oppong jet comprennent une évaluation complète des risques pour chaque vol ainsi qu’un nettoyage complet et une désinfection intégrale après chaque vol. En outre, les membres d’équipage ne se présentent au travail que s’ils sont 100 % en bonne santé. Afin de fournir les meilleures normes de sécurité possibles, tous les membres du personnel navigant ont suivi une formation approfondie sur la gestion des passagers à bord et l’ensemble des tâches effectuées à l’intérieur et aux abords de l’avion."
+                  : "The general safety measures for all Oppong jet aircraft include a complete risk assessment for every flight and full cleaning and disinfection after each flight. In addition, crew members report for duty only if they are 100% healthy. All flight crew members have received an in-depth briefing regarding the handling of passengers on board and all the tasks in and around the aircraft to provide the best possible safety standards."}
               </p>
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
             <AccordionTrigger>
               {lang === "french"
-                ? "Tous les appareils de SPARFELL sont-ils disponibles sur le site Internet ?"
-                : "Are all the aircraft that SPARFELL has available on the website?"}
+                ? "Tous les appareils de Oppong jet sont-ils disponibles sur le site Internet ?"
+                : "Are all the aircraft that Oppong jet has available on the website?"}
             </AccordionTrigger>
             <AccordionContent>
               {lang === "french"
@@ -80,13 +80,13 @@ export default function FrequentlyAskQuestion() {
           <AccordionItem value="item-4">
             <AccordionTrigger>
               {lang === "french"
-                ? "SPARFELL propose-t-il également des services d'acquisition d'avions ?"
-                : "Does SPARFELL also provide aircraft acquisition services?"}
+                ? "Oppong jet propose-t-il également des services d'acquisition d'avions ?"
+                : "Does Oppong jet also provide aircraft acquisition services?"}
             </AccordionTrigger>
             <AccordionContent>
               {lang === "french"
-                ? "Oui, SPARFELL offre à la fois des services de vente et d’achat d’avions.En fonction de vos besoins spécifiques, nos équipes commerciales compétentes se feront un plaisir de vous assister dans votre recherche d’appareils."
-                : "Yes, SPARFELL offers both aircraft sales and aircraft acquisition services. Based on your specific requirements, our knowledgeable trading teams can assist you in sourcing an aircraft."}
+                ? "Oui, Oppong jet offre à la fois des services de vente et d’achat d’avions.En fonction de vos besoins spécifiques, nos équipes commerciales compétentes se feront un plaisir de vous assister dans votre recherche d’appareils."
+                : "Yes, Oppong jet offers both aircraft sales and aircraft acquisition services. Based on your specific requirements, our knowledgeable trading teams can assist you in sourcing an aircraft."}
             </AccordionContent>
           </AccordionItem>
         </Accordion>
