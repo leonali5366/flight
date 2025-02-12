@@ -1,9 +1,24 @@
 import prisma from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
+import nodemailer from "nodemailer";
+
+// Create a nodemailer transporter
+const transporter = nodemailer.createTransport({
+  host: process.env.HOSTINGER_SMTP_HOST,
+  port: Number(process.env.HOSTINGER_SMTP_PORT),
+  secure: true,
+  auth: {
+    user: process.env.HOSTINGER_SMTP_USER,
+    pass: process.env.HOSTINGER_SMTP_PASSWORD,
+  },
+});
 
 // POST: Create a new booking
 export async function POST(req: NextRequest) {
   try {
+    const requestBody = await req.json();
+    console.log("Received Booking Data:", requestBody); // Debugging log
+
     const {
       title,
       firstName,
@@ -21,7 +36,13 @@ export async function POST(req: NextRequest) {
       passenger,
       departureTime,
       returnDepartureTime,
-    } = await req.json();
+    } = requestBody;
+
+    if (!email) {
+      throw new Error(
+        "User email is missing. Cannot send booking confirmation."
+      );
+    }
 
     const booking = await prisma.booking.create({
       data: {
@@ -44,15 +65,36 @@ export async function POST(req: NextRequest) {
       },
     });
 
+    // Send email notification to the user and forward to the internal team
+    try {
+      await transporter.sendMail({
+        from: process.env.HOSTINGER_SMTP_USER,
+        to: [email, "justin@oppongjet.com"],
+        subject: "Your Jet Booking Confirmation",
+        text: `Dear ${firstName} ${lastName},\n\n
+      Thank you for booking with us! Here are your booking details:\n\n
+      Name: ${firstName} ${lastName}\n
+      Email: ${email}\n
+      Phone: ${phone}\n
+      From: ${from}\n
+      To: ${to}\n
+      Departure Date: ${departureDate}\n
+      Return Date: ${returnDate || "N/A"}\n
+      Passengers: ${passenger}\n
+      Additional Requests: ${additionalRequests || "None"}\n\n
+      Our team will get in touch with you soon.\n\n
+      Best regards,\n
+      Oppong Jet Team
+    `,
+      });
+    } catch (emailError) {
+      console.error("Error sending email:", emailError);
+    }
+
     return NextResponse.json(booking, { status: 201 });
   } catch (error) {
     console.error("Error creating booking:", error);
-
-    // Assert the error type before accessing its message
-    const errorMessage =
-      error instanceof Error ? error.message : "Error creating booking";
-
-    return NextResponse.json({ error: errorMessage }, { status: 500 });
+    return NextResponse.json({ error: "error" }, { status: 500 });
   }
 }
 
